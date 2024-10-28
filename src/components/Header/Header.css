@@ -1,0 +1,22 @@
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  background: #03353e;
+}
+.header_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.header_block {
+  display: flex;
+  gap: 35px;
+}
+.header_content p {
+  color: #ebf2ea;
+  font-size: 20px;
+}
