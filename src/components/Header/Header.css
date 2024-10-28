@@ -2,21 +2,35 @@
   width: 100%;
   box-sizing: border-box;
   background: #03353e;
+  display: flex;
+  justify-content: center;
 }
-.header_content {
+.header_cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1600px;
   width: 95%;
-  margin: 0 auto;
-  padding: 15px 0;
+  padding: 16px 0;
 }
 .header_block {
   display: flex;
-  gap: 35px;
+  gap: 38px;
 }
-.header_content p {
+.menu_cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 6px;
+  margin: 0;
+  border-radius: 2px;
+}
+.menu_cont p {
   color: #ebf2ea;
-  font-size: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0;
+}
+.menu_cont:hover {
+  background: #c1403d;
 }
