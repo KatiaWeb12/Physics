@@ -25,7 +25,7 @@
   margin: 0;
   border-radius: 2px;
 }
-.menu_cont p {
+.menu_cont a {
   color: #ebf2ea;
   font-size: 24px;
   cursor: pointer;
