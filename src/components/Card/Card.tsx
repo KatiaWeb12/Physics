@@ -6,9 +6,9 @@ export default function Card() {
     <div className="card">
       <img src="" alt="" />
       <div className="card_info">
-         <div className="topic_cont">
-            <h6 className="topic">Тема</h6>
-         </div>
+        <div className="topic_cont">
+          <h6 className="topic">Тема</h6>
+        </div>
         <p>
           Описание форулы. Описание формулы - это текстовое объяснение или
           инструкция, описывающая ту или иную математическую или научную

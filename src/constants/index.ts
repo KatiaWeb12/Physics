@@ -4,5 +4,6 @@ export const ROOT_ROUTES = Object.freeze({
    class_7: "/class_7",
    class_8: "/class_8",
    class_9: "/class_9",
-   repeating: "/repeating"
+   repeating: "/repeating",
+   main_page: '/main_page'
 })

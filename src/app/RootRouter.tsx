@@ -7,6 +7,7 @@ import RepeatingPage from "../pages/RepeatingPage/RepeatingPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { ROOT_ROUTES } from "../constants";
 import Layout from "../components/Layout/Layout";
+import MainPage from "../pages/MainPage/MainPage";
 
 export default function RootRouter() {
   return (
@@ -28,6 +29,7 @@ export default function RootRouter() {
           element={<ClassPage classType="class_9" />}
         />
         <Route path={ROOT_ROUTES.repeating} element={<RepeatingPage />} />
+        <Route path={ROOT_ROUTES.main_page} element={<MainPage />} />
         <Route path={"*"} element={<NotFoundPage />} />
       </Route>
     </Routes>

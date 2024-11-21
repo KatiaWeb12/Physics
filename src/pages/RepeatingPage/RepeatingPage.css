@@ -1,0 +1,64 @@
+.repeating {
+  width: 100%;
+  max-width: 1900px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+.rep_title{
+   font-size: 28px;
+   padding: 10px 30px;
+   color: white;
+   background: #03353e;
+   border-radius: 14px;
+}
+.card_repeating{
+   display: flex;
+   height: 900px;
+   gap: 50px;
+}
+.rep_card {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   border-radius: 15px;
+   width: 700px;
+   height: 100%;
+   box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+   padding: 50px;
+   box-sizing: border-box;
+   gap: 50px;
+   cursor: pointer;
+}
+
+.card_repeating img{
+   width: 50px;
+   height: 50px;
+   cursor: pointer;
+}
+.side{
+   width: 100px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 15px;
+}
+.theme{
+   width: 100px;
+}
+.side{
+   width: 100px;
+}
+.side .topic_cont{
+   width: 100% !important;
+   border-radius: 14px;
+   cursor: pointer;
+}
+.formula_text{
+   font-size: 25px;
+}

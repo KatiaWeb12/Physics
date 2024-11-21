@@ -16,20 +16,19 @@
   display: flex;
   flex-direction: column;
 }
-.topic_cont {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 30%;
+.topic_cont{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #c1403d;
-  color: #ebf2ea;
-  font-size: 22px;
   padding: 4px 10px;
 }
 .topic {
   font-size: 18px;
   margin: 0;
-  align-items: center;
+  color: #ebf2ea;
+  font-size: 22px;
 }
 .card_info p {
   font-size: 15px;

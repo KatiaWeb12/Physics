@@ -1,0 +1,19 @@
+.class_topics {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  margin-left: 50px;
+}
+.topic_cont_class {
+  padding: 10px;
+}
+.topic_cont_class:hover {
+  background: #17ADBE;
+  color: #ffffff;
+}
+.class_theme {
+  font-size: 25px;
+  cursor: pointer;
+}

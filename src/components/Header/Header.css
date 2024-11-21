@@ -17,20 +17,17 @@
   display: flex;
   gap: 38px;
 }
-.menu_cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 6px;
-  margin: 0;
-  border-radius: 2px;
-}
-.menu_cont a {
+.menu_cont{
   color: #ebf2ea;
   font-size: 24px;
   cursor: pointer;
   margin: 0;
+  text-decoration: none;
+  padding: 6px 6px;
+  border-radius: 2px;
+  margin: 0;
 }
-.menu_cont:hover {
+.menu_cont:hover, .active_link {
   background: #c1403d;
 }
+
