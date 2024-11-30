@@ -1,31 +1,28 @@
+import { useEffect, useState } from "react";
 import "./ClassPage.css";
+import { agent, ClassesDTO } from "../../api";
+import { type AxiosResponse } from "axios";
+import Image from "../../static/формулы/7класс/Общие знания/Абсолютная погрешность.png";
 interface Props {
   classType: ClassTypes;
 }
 type ClassTypes = "class_7" | "class_8" | "class_9";
+const HeaderMap: Record<ClassTypes, string> = {
+  class_7: "7 класс",
+  class_8: "8 класс",
+  class_9: "9 класс",
+};
 export default function ClassPage({ classType }: Props) {
-  let title: string = "";
-  let themes: string[] = [];
-  if (classType === "class_7") {
-    themes = ["Общие знания", "Работа. Энергия", "Силы в природе", "Давление"];
-    title = "7 класс";
-  } else if (classType === "class_8") {
-    themes = ["Термодинамика", "Электричество", "Магнитные явления", "Оптика"];
-    title = "8 класс";
-  } else if (classType === "class_9") {
-    themes = [
-      "Механика",
-      "Механика. Движение по окружности",
-      "Импульс. Работа. Энергия",
-      "Статика. Гидростатика",
-      "Колебания. Волны",
-      "Электромагнитная индукция",
-    ];
-    title = "9 класс";
-  }
+  const [themes, setThemes] = useState<string[]>([]);
+  useEffect(() => {
+    agent.get(`/${classType}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
+      setThemes(data.themes);
+    });
+  }, [classType]);
+
   return (
     <div className="class_page">
-      <h4>{title}</h4>
+      <h4>{HeaderMap[classType]}</h4>
       <div className="class_topics">
         {themes.map((theme, key) => {
           return (
