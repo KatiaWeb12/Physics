@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { Formula } from "../../types";
-import { ClassSchema } from "../types";
-
-
+import type { ClassSchema } from "../types";
 
 const initialState: ClassSchema = {
   themes: [],
@@ -13,7 +10,7 @@ const classSlice = createSlice({
   name: "class",
   initialState,
   reducers: {
-    getData: (state, { payload }) => payload,
+    getData: (_, { payload }) => payload,
     resetData: () => initialState,
   },
 });

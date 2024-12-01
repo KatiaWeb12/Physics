@@ -1,10 +1,8 @@
-import CardList from "../../components/CardList/CardList";
+import { CardList } from "@/components";
 import "./MainPage.css";
 
 export default function MainPage() {
   return (
-    <>
-      <CardList />
-    </>
+    <CardList />
   );
 }

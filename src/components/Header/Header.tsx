@@ -1,75 +1,64 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import { ROOT_ROUTES } from "../../constants";
+import ContentWrapper from "../ContentWrapper/ContentWrapper";
 
+const links = [
+  {
+    title: 'Главная',
+    route: ROOT_ROUTES.main_page,
+  },
+  {
+    title: '7 класс',
+    route: ROOT_ROUTES.class_7,
+  },
+  {
+    title: '8 класс',
+    route: ROOT_ROUTES.class_8,
+  },
+  {
+    title: '9 класс',
+    route: ROOT_ROUTES.class_9,
+  },
+  {
+    title: 'Повторение',
+    route: ROOT_ROUTES.repeating,
+  },
+  {
+    title: 'Тест',
+    route: ROOT_ROUTES.testing,
+  },
+
+]
+const headerBlocksArray = [[links[0]], links.slice(1, 4), links.slice(4, 6)];
+console.log(headerBlocksArray);
 export default function Header() {
   const { pathname } = useLocation();
   return (
     <header className="header">
-      <nav className="header_cont">
-        <div className="header_block">
-            <Link
-              to={ROOT_ROUTES.addFormula}
-              className={
-                pathname === ROOT_ROUTES.addFormula ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              Добавить формулу
-            </Link>
-            <Link
-              to={ROOT_ROUTES.testing}
-              className={
-                pathname === ROOT_ROUTES.testing ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              Тест
-            </Link>
-        </div>
-        <div className="header_block">
-            <Link
-              to={ROOT_ROUTES.class_7}
-              className={
-                pathname === ROOT_ROUTES.class_7 ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              7 класс
-            </Link>
-            <Link
-              to={ROOT_ROUTES.class_8}
-              className={
-                pathname === ROOT_ROUTES.class_8 ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              8 класс
-            </Link>
-            <Link
-              to={ROOT_ROUTES.class_9}
-              className={
-                pathname === ROOT_ROUTES.class_9 ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              9 класс
-            </Link>
-        </div>
-        <div className="header_block">
-            <Link
-              to={ROOT_ROUTES.repeating}
-              className={
-                pathname === ROOT_ROUTES.repeating ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              Повторение
-            </Link>
-            <Link
-              to={ROOT_ROUTES.main_page}
-              className={
-                pathname === ROOT_ROUTES.main_page ? "active_link menu_cont" : "menu_cont"
-              }
-            >
-              Главная
-            </Link>
-        </div>
-      </nav>
+      <ContentWrapper>
+        <nav className="header_cont">
+          {
+            headerBlocksArray.map((el, index) => (
+              // невсегда правильно в качестве key писать интекс элемента массива, но здесь допустимо, так как массив не изменяется
+              <div className="header_block" key={index}> 
+                {
+                  el.map((linksItem) => (
+                    <Link
+                      to={linksItem.route}
+                      className={
+                        pathname === linksItem.route ? "active_link menu_cont" : "menu_cont"
+                      }
+                    >
+                      {linksItem.title}
+                    </Link>
+                  ))
+                }
+              </div>
+            )
+            )}
+        </nav>
+      </ContentWrapper>
     </header>
   );
 }

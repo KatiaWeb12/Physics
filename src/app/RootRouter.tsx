@@ -6,7 +6,7 @@ import ClassPage from "../pages/ClassPage/ClassPage";
 import RepeatingPage from "../pages/RepeatingPage/RepeatingPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { ROOT_ROUTES } from "../constants";
-import Layout from "../components/Layout/Layout";
+import {Layout} from "@/components";
 import MainPage from "../pages/MainPage/MainPage";
 
 export default function RootRouter() {
