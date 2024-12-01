@@ -1,16 +1,11 @@
 .header {
-  width: 100%;
-  box-sizing: border-box;
   background: #03353e;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 48px;
 }
 .header_cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1600px;
-  width: 95%;
   padding: 16px 0;
 }
 .header_block {

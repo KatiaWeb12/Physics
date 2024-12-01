@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { type AxiosResponse } from "axios";
 import { useAppDispatch, useAppSelector, classActions } from "@/redux";
 import { agent, ClassesDTO } from "@/api";
+import { ContentWrapper } from "@/components";
+import ClassThemesList from "./components/ClassThemesList";
 import "./ClassPage.css";
 
 interface Props {
@@ -25,19 +27,9 @@ export default function ClassPage({ classType }: Props) {
   }, [classType]);
 
   return (
-    <div className="class_page">
-      <h4>{HeaderMap[classType]}</h4>
-      <div className="class_topics">
-        {themes.map((theme, key) => {
-          return (
-            <div className="topic_cont_class" key={key}>
-              <a className="class_theme" href="\">
-                {theme}
-              </a>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <ContentWrapper>
+      <h4 className="class_header">{HeaderMap[classType]}</h4>
+      <ClassThemesList themes={themes} />
+    </ContentWrapper>
   );
 }
