@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^2.4.0",
     "@types/node": "^16.18.115",
     "@types/react": "^18.3.12",
@@ -18,11 +19,9 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "craco start",
     "start:dev": "concurrently \"npm start\" \"npm run server\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "build": "craco build",
     "server": "json-server -w server/db.json --port 3001"
   },
   "eslintConfig": {
