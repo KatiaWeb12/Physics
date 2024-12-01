@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
-import "./ClassPage.css";
-import { agent, ClassesDTO } from "../../api";
+import { useEffect } from "react";
 import { type AxiosResponse } from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { useAppSelector } from "../../hooks/useAppSelector";
-import { classActions } from "../../redux/slices/classSlice";
+import { useAppDispatch, useAppSelector, classActions } from "@/redux";
+import { agent, ClassesDTO } from "@/api";
+import "./ClassPage.css";
+
 interface Props {
   classType: ClassTypes;
 }
 type ClassTypes = "class_7" | "class_8" | "class_9";
+
 const HeaderMap: Record<ClassTypes, string> = {
   class_7: "7 класс",
   class_8: "8 класс",
   class_9: "9 класс",
 };
 export default function ClassPage({ classType }: Props) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { themes } = useAppSelector((state) => state.class);
+
   useEffect(() => {
     agent.get(`/${classType}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
       dispatch(classActions.getData(data));
