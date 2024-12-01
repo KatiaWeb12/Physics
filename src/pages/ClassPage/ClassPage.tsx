@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import "./ClassPage.css";
 import { agent, ClassesDTO } from "../../api";
 import { type AxiosResponse } from "axios";
-import Image from "../../static/формулы/7класс/Общие знания/Абсолютная погрешность.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { classActions } from "../../redux/slices/classSlice";
 interface Props {
   classType: ClassTypes;
 }
@@ -13,10 +15,11 @@ const HeaderMap: Record<ClassTypes, string> = {
   class_9: "9 класс",
 };
 export default function ClassPage({ classType }: Props) {
-  const [themes, setThemes] = useState<string[]>([]);
+  const dispatch = useDispatch();
+  const { themes } = useAppSelector((state) => state.class);
   useEffect(() => {
     agent.get(`/${classType}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
-      setThemes(data.themes);
+      dispatch(classActions.getData(data));
     });
   }, [classType]);
 
