@@ -2,6 +2,7 @@ import "./RepeatingPage.css";
 import Left from "../../static/arrow_left.png";
 import Right from "../../static/arrow_right.png";
 
+//Страница: повторение формул по карточкам
 export default function RepeatingPage() {
   return (
     <div className="repeating">

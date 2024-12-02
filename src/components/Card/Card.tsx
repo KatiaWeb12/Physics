@@ -1,6 +1,5 @@
 import Button from "../Button/Button";
 import "./Card.css";
-
 export default function Card() {
   return (
     <div className="card">
@@ -17,7 +16,7 @@ export default function Card() {
         </p>
       </div>
       <div className="learn_more">
-         <Button />
+        <Button />
       </div>
     </div>
   );

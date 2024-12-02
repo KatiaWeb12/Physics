@@ -1,9 +1,6 @@
-interface Formula {
-  id: 1;
-  theme: string;
-  image: string;
-  description: any;
-}
+import { Formula } from "@/types";
+
+//типизация класса
 export interface ClassesDTO {
   themes: string[];
   formulas: Formula;

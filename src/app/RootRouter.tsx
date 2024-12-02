@@ -9,6 +9,7 @@ import { ROOT_ROUTES } from "../constants";
 import {Layout} from "@/components";
 import MainPage from "../pages/MainPage/MainPage";
 
+//роутинг по страницам
 export default function RootRouter() {
   return (
     <Routes>

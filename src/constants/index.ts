@@ -1,3 +1,4 @@
+//ссылки для роутинга
 export const ROOT_ROUTES = Object.freeze({
    addFormula: "/add_formula",
    testing: "/testing",
