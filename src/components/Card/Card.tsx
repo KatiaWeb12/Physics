@@ -1,5 +1,7 @@
 import Button from "../Button/Button";
 import "./Card.css";
+
+//компонент карточки с описанием формулы
 export default function Card() {
   return (
     <div className="card">

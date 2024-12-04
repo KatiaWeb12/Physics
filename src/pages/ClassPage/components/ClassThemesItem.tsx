@@ -1,15 +1,16 @@
 import "../ClassPage.css";
 //типизация пропса -> {тема, ссылка}
 interface Props {
-  theme: string;
+  theme_name: string;
+  theme_id: number;
   link: string;
 }
 
-export default function ClassThemesItem({ theme, link }: Props) {
+export default function ClassThemesItem({ theme_name, theme_id, link }: Props) {
   return (
-    <div className="topic_cont_class" key={theme}>
+    <div className="topic_cont_class">
       <a className="class_theme" href={link}>
-        {theme}
+        {theme_name}
       </a>
     </div>
   )

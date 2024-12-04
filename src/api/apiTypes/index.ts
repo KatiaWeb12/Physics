@@ -1,7 +1,7 @@
-import { Formula } from "@/types";
+import { Formula, Theme } from "@/types";
 
 //типизация класса
 export interface ClassesDTO {
-  themes: string[];
+  themes: Theme[];
   formulas: Formula;
 }

@@ -1,14 +1,9 @@
-import type { Formula } from "../../../types";
+import type { Formula, Theme } from "../../../types";
 
 //типизация для classSlice
 export interface ClassSchema {
-   themes: string[];
+   themes: Theme[];
    formulas: Formula[];
 }
 
-//типизация для allSlice
-export interface AllSchema {
-   themes: string[];
-   formulas: Formula[];
-}
 
