@@ -29,6 +29,18 @@ export default function RootRouter() {
           path={ROOT_ROUTES.class_9}
           element={<ClassPage classType="class_9" />}
         />
+        <Route
+          path={ROOT_ROUTES.class_7}
+          element={<ClassPage classType="class_7" />}
+        />
+        <Route
+          path={ROOT_ROUTES.class_8}
+          element={<ClassPage classType="class_8" />}
+        />
+        <Route
+          path={ROOT_ROUTES.class_9}
+          element={<ClassPage classType="class_9" />}
+        />
         <Route path={ROOT_ROUTES.repeating} element={<RepeatingPage />} />
         <Route path={ROOT_ROUTES.main_page} element={<MainPage />} />
         <Route path={"*"} element={<NotFoundPage />} />

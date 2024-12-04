@@ -1,7 +1,9 @@
 import './Button.css'
-
-export default function Button(){
+interface Props{
+  text: string;
+}
+export default function Button({text}:Props){
     return(
-      <button className="button">Learn more</button>
+      <button className="button">{text}</button>
     )
 }

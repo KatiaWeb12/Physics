@@ -6,6 +6,7 @@ import { Theme } from "@/types";
 interface Props {
   themes: Theme[];
 }
+
 //список тем
 export default function ClassThemesList({ themes }: Props) {
   return (

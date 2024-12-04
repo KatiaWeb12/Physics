@@ -1,4 +1,5 @@
 import "../ClassPage.css";
+
 //типизация пропса -> {тема, ссылка}
 interface Props {
   theme_name: string;

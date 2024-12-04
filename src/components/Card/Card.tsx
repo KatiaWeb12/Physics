@@ -18,7 +18,7 @@ export default function Card() {
         </p>
       </div>
       <div className="learn_more">
-        <Button />
+        <Button text="Узнать больше" />
       </div>
     </div>
   );
