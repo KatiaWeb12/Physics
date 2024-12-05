@@ -23,7 +23,7 @@ export default function ClassPage({ classType }: Props) {
   const dispatch = useAppDispatch();
   const { themes } = useAppSelector((state) => state.class);
   //ClassesDTO - типизация класса
-  //AxiosResponse - типизация ответа get-запроса
+  //AxiosResponse - типизация ответа get-запроса (then)
   useEffect(() => {
     agent.get(`/${classType}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
       dispatch(classActions.getData(data));

@@ -5,6 +5,7 @@ export interface Formula {
   theme: string;
   image: string;
   description: string;
+  physical_devices: string,
   title: string;
   physical_quantities: PhysicalQuantities;
 }

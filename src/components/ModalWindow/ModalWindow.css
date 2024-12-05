@@ -1,6 +1,6 @@
 .modalCont {
-  /* display: flex; */
-  display: none;
+  display: flex;
+  /* display: none; */
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -84,18 +84,53 @@
   justify-content: center;
   gap: 15px;
 }
-.quantity{
+.quantity {
   display: flex;
   align-items: center;
-  background: #03353E;
+  background: #03353e;
   padding: 6px 10px;
 }
 .quantity p {
-   font-size: 17px;
-   margin: 0;
-   color: #ebf2ea;
+  font-size: 17px;
+  margin: 0;
+  color: #ebf2ea;
 }
 .formula_description {
+  margin: 0;
   margin-top: 50px;
+}
+.physical_devices {
+  margin-top: 15px;
+}
+.modal_text_cont {
+  background: #0294a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+}
+.modal_text_cont h4 {
+  margin: 0;
+  color: #ebf2ea;
+  font-size: 18px;
+}
+.physical_devices {
+  display: flex;
+  gap: 35px;
   margin-bottom: 50px;
+}
+.modal_button {
+  background: #c1403d;
+  outline: none;
+  cursor: pointer;
+  color: #ebf2ea;
+  font-size: 22px;
+  border: none;
+  padding: 8px 18px;
+  line-height: 24px;
+  font-family: "Roboto", sans-serif;
+}
+.modal_button:hover {
+  background: #03353e;
+  color: #ebf2ea;
 }
