@@ -45,6 +45,7 @@ export default function Header() {
                 {
                   el.map((linksItem) => (
                     <Link
+                    key={linksItem.route}
                       to={linksItem.route}
                       className={
                         pathname === linksItem.route ? "active_link menu_cont" : "menu_cont"

@@ -11,7 +11,7 @@ interface Props {
 export default function ClassThemesList({ themes }: Props) {
   return (
     <div className="class_topics">
-      {themes.map((theme, key) => <ClassThemesItem key={key} theme_name={theme.theme_name} theme_id={theme.theme_id} link={'/'} />)}
+      {themes.map((theme, key) => <ClassThemesItem key={key} themeName={theme.themeName} themeId={theme.themeId}/>)}
     </div>
   );
 }

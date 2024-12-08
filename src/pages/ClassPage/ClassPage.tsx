@@ -5,6 +5,7 @@ import { agent, ClassesDTO } from "@/api";
 import { ContentWrapper } from "@/components";
 import ClassThemesList from "./components/ClassThemesList";
 import "./ClassPage.css";
+import ClassRouter from "./components/ClassRouter";
 
 //типизация пропса -> тип класса
 interface Props {
@@ -34,6 +35,7 @@ export default function ClassPage({ classType }: Props) {
     <ContentWrapper>
       <h4 className="class_header">{HeaderMap[classType]}</h4>
       <ClassThemesList themes={themes} />
+      {/* <ClassRouter/> */}
     </ContentWrapper>
   );
 }

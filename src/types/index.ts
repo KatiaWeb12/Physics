@@ -2,7 +2,7 @@ type PhysicalQuantities = Record<string, string>
 //типизация структуры формулы
 export interface Formula {
   id: number;
-  theme: string;
+  themeId: number;
   image: string;
   description: string;
   physical_devices: string,
@@ -11,7 +11,7 @@ export interface Formula {
 }
 //типизация структуры темы
 export interface Theme {
-  theme_id: number;
-  theme_name: string;
+  themeId: number;
+  themeName: string;
 
 }

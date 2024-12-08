@@ -8,6 +8,7 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { ROOT_ROUTES } from "../constants";
 import {Layout} from "@/components";
 import MainPage from "../pages/MainPage/MainPage";
+import FormulaListPage from "@/pages/ClassPage/pages/FormulaListPage/FormulaListPage";
 
 //роутинг по страницам
 export default function RootRouter() {
@@ -20,19 +21,9 @@ export default function RootRouter() {
         <Route
           path={ROOT_ROUTES.class_7}
           element={<ClassPage classType="class_7" />}
-        />
-        <Route
-          path={ROOT_ROUTES.class_8}
-          element={<ClassPage classType="class_8" />}
-        />
-        <Route
-          path={ROOT_ROUTES.class_9}
-          element={<ClassPage classType="class_9" />}
-        />
-        <Route
-          path={ROOT_ROUTES.class_7}
-          element={<ClassPage classType="class_7" />}
-        />
+        >
+          <Route path={`:id`} element={<FormulaListPage/>}/>
+        </Route>
         <Route
           path={ROOT_ROUTES.class_8}
           element={<ClassPage classType="class_8" />}

@@ -1,17 +1,17 @@
+import { useLocation } from "react-router-dom";
 import "../ClassPage.css";
 
 //типизация пропса -> {тема, ссылка}
 interface Props {
-  theme_name: string;
-  theme_id: number;
-  link: string;
+  themeName: string;
+  themeId: number;
 }
-
-export default function ClassThemesItem({ theme_name, theme_id, link }: Props) {
+export default function ClassThemesItem({ themeName, themeId}: Props) {
+  const { pathname } = useLocation()
   return (
     <div className="topic_cont_class">
-      <a className="class_theme" href={link}>
-        {theme_name}
+      <a className="class_theme" href={`${pathname}/${themeId}`}>
+        {themeName}
       </a>
     </div>
   )
