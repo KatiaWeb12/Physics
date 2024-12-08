@@ -41,11 +41,11 @@ export default function Header() {
           {
             headerBlocksArray.map((el, index) => (
               // невсегда правильно в качестве key писать интекс элемента массива, но здесь допустимо, так как массив не изменяется
-              <div className="header_block" key={index}> 
+              <div className="header_block" key={index}>
                 {
                   el.map((linksItem) => (
                     <Link
-                    key={linksItem.route}
+                      key={linksItem.route}
                       to={linksItem.route}
                       className={
                         pathname === linksItem.route ? "active_link menu_cont" : "menu_cont"
