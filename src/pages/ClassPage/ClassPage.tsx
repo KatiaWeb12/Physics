@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import { type AxiosResponse } from "axios";
 import { useAppDispatch, useAppSelector, classActions } from "@/redux";
 import { agent, ClassesDTO } from "@/api";
 import { ContentWrapper } from "@/components";
 import ClassThemesList from "./components/ClassThemesList";
 import "./ClassPage.css";
-import ClassRouter from "./components/ClassRouter";
+import FormulaList from "./components/FormulaListPage/FormulaList";
 
 //типизация пропса -> тип класса
 interface Props {
@@ -23,6 +24,10 @@ const HeaderMap: Record<ClassTypes, string> = {
 export default function ClassPage({ classType }: Props) {
   const dispatch = useAppDispatch();
   const { themes } = useAppSelector((state) => state.class);
+  const [activeThemeId, setActiveThemeId] = useState<number>();
+  function setActiveThemeIdHandle(id: number) {
+    setActiveThemeId(id)
+  }
   //ClassesDTO - типизация класса
   //AxiosResponse - типизация ответа get-запроса (then)
   useEffect(() => {
@@ -34,8 +39,10 @@ export default function ClassPage({ classType }: Props) {
   return (
     <ContentWrapper>
       <h4 className="class_header">{HeaderMap[classType]}</h4>
-      <ClassThemesList themes={themes} />
-      {/* <ClassRouter/> */}
+      <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} />
+      {
+        activeThemeId && <FormulaList themeId={activeThemeId} />
+      }
     </ContentWrapper>
   );
 }

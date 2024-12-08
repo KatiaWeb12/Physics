@@ -4,15 +4,14 @@ import "../ClassPage.css";
 //типизация пропса -> {тема, ссылка}
 interface Props {
   themeName: string;
+  onClickHandle: (activeId: number) => void;
   themeId: number;
 }
-export default function ClassThemesItem({ themeName, themeId}: Props) {
+export default function ClassThemesItem({ themeName, themeId, onClickHandle }: Props) {
   const { pathname } = useLocation()
   return (
-    <div className="topic_cont_class">
-      <a className="class_theme" href={`${pathname}/${themeId}`}>
-        {themeName}
-      </a>
-    </div>
+    <div className="topic_cont_class" onClick={() => onClickHandle(themeId)}>
+      {themeName}
+    </div >
   )
 }
