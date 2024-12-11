@@ -3,6 +3,7 @@ import "./Header.css";
 import { ROOT_ROUTES } from "../../constants";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 
+//ссылки
 const links = [
   {
     title: 'Главная',
@@ -30,8 +31,10 @@ const links = [
   },
 
 ]
+//блоки Header
 const headerBlocksArray = [[links[0]], links.slice(1, 4), links.slice(4, 6)];
-console.log(headerBlocksArray);
+
+//компонент Header
 export default function Header() {
   const { pathname } = useLocation();
   return (
@@ -40,7 +43,6 @@ export default function Header() {
         <nav className="header_cont">
           {
             headerBlocksArray.map((el, index) => (
-              // невсегда правильно в качестве key писать интекс элемента массива, но здесь допустимо, так как массив не изменяется
               <div className="header_block" key={index}>
                 {
                   el.map((linksItem) => (

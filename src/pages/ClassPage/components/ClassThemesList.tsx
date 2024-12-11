@@ -8,7 +8,7 @@ interface Props {
   themes: Theme[];
 }
 
-//список тем
+//компонент списка тем
 export default function ClassThemesList({ themes, setActiveThemeId }: Props) {
   return (
     <div className="class_topics">

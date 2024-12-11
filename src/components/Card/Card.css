@@ -17,7 +17,6 @@
   flex-direction: column;
 }
 .topic_cont{
-  width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,4 +41,19 @@
 .learn_more {
   display: flex;
   justify-content: flex-end;
+}
+.button {
+  background: #c1403d;
+  outline: none;
+  cursor: pointer;
+  color: #ebf2ea;
+  font-size: 18px;
+  border: none;
+  padding: 4px 12px;
+  line-height: 24px;
+  font-family: "Roboto", sans-serif;
+}
+.button:hover {
+  background: #03353e;
+  color: #ebf2ea;
 }

@@ -7,7 +7,6 @@ export default function MainPage() {
   return (
     <>
       <CardList />
-      <ModalWindow />
     </>
   );
 }

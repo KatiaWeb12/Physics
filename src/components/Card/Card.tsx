@@ -1,25 +1,37 @@
-import Button from "../Button/Button";
+import { Formula } from "@/types";
 import "./Card.css";
+import { useState } from "react";
+import ModalWindow from "../ModalWindow/ModalWindow";
+
+interface Props {
+  formulaInfo: Formula;
+}
 
 //компонент карточки с описанием формулы
-export default function Card() {
+export default function Card({ formulaInfo }: Props) {
+  //состояние открытого модального окна
+  const [isLearnMore, setIsLearnMore] = useState(false)
+
+  function setIsLearnMoreHendler() {
+    setIsLearnMore(!isLearnMore)
+  }
   return (
-    <div className="card">
-      <img src="" alt="" />
-      <div className="card_info">
-        <div className="topic_cont">
-          <h6 className="topic">Тема</h6>
+    <>
+      {isLearnMore && (<ModalWindow />)}
+      <div className="card">
+        <img src="" alt="" />
+        <div className="card_info">
+          <div className="topic_cont">
+            <h6 className="topic">{formulaInfo.title}</h6>
+          </div>
+          <p>
+            {formulaInfo.description}
+          </p>
         </div>
-        <p>
-          Описание форулы. Описание формулы - это текстовое объяснение или
-          инструкция, описывающая ту или иную математическую или научную
-          формулу, ее структуру, элементы, значения переменных и ее применение в
-          конкретной ситуации.
-        </p>
+        <div className="learn_more">
+          <button className="button" onClick={setIsLearnMoreHendler}>Изучить</button>
+        </div>
       </div>
-      <div className="learn_more">
-        <Button text="Узнать больше" />
-      </div>
-    </div>
+    </>
   );
 }

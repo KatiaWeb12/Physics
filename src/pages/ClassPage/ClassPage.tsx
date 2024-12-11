@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
 import { type AxiosResponse } from "axios";
 import { useAppDispatch, useAppSelector, classActions } from "@/redux";
 import { agent, ClassesDTO } from "@/api";
@@ -25,6 +24,7 @@ export default function ClassPage({ classType }: Props) {
   const dispatch = useAppDispatch();
   const { themes } = useAppSelector((state) => state.class);
   const [activeThemeId, setActiveThemeId] = useState<number>();
+  //функция, меняющая активное id
   function setActiveThemeIdHandle(id: number) {
     setActiveThemeId(id)
   }
