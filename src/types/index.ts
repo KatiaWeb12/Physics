@@ -5,7 +5,7 @@ export interface Formula {
   themeId: number;
   image: string;
   description: string;
-  physical_devices: string,
+  physical_devices?: string,
   title: string;
   physical_quantities: PhysicalQuantities;
 }
