@@ -1,6 +1,17 @@
+import { Formula } from "@/types";
 import "./CardList.css";
-export default function CardList() {
+import Card from "../Card/Card";
+
+interface Props{
+  formulas: Formula[];
+}
+
+export default function CardList({formulas}:Props) {
   return (
-    <div className="card_list"></div>
+    <div className="card_list">
+      {
+        formulas.map(formula => <Card formulaInfo={formula}/>)
+      }
+    </div>
   );
 }

@@ -1,12 +1,12 @@
 import { CardList } from "@/components";
 import "./MainPage.css";
-import ModalWindow from "@/components/ModalWindow/ModalWindow";
+import formulasList from "@/constants/allFormulas";
 
+//Главная страница
 export default function MainPage() {
-  //Главная страница
   return (
     <>
-      <CardList />
+      <CardList formulas={formulasList} />
     </>
   );
 }

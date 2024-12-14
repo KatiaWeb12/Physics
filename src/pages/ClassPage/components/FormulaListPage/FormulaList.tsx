@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/redux'
+import { useAppSelector } from '@/redux/hooks/useAppSelector'
 import Card from '@/components/Card/Card';
 import "./FormulaList.css";
 

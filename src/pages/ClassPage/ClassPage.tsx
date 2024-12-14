@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { type AxiosResponse } from "axios";
-import { useAppDispatch, useAppSelector, classActions } from "@/redux";
+import { classActions } from "@/redux/class/slices/classSlice";
+import { useAppDispatch } from "@/redux/hooks/useAppDispatch";
+import { useAppSelector} from "@/redux/hooks/useAppSelector";
 import { agent, ClassesDTO } from "@/api";
 import { ContentWrapper } from "@/components";
 import ClassThemesList from "./components/ClassThemesList";

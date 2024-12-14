@@ -2,7 +2,7 @@ import "./ModalWindow.css";
 import Close from "../../static/close.png";
 import FormulaImg from "../../static/formulas/class_7/Energy/Кинетическая энергия.png";
 import { Formula } from "@/types";
-import { useAppSelector } from "@/redux";
+import { useAppSelector } from "@/redux/hooks/useAppSelector";
 
 //типизация пропсов
 interface Props {

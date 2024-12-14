@@ -11,7 +11,7 @@ export interface StoreSchema {
 }
 //типизация store
 const reducers: ReducersMapObject<StoreSchema> = {
-  class: classReducer
+  class: classReducer,
 };
 //создание store
 export const store = configureStore({
