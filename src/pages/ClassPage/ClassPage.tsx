@@ -25,7 +25,7 @@ const HeaderMap: Record<ClassTypes, string> = {
 export default function ClassPage({ classType }: Props) {
   const dispatch = useAppDispatch();
   const { themes } = useAppSelector((state) => state.class);
-  const [activeThemeId, setActiveThemeId] = useState<number>();
+  const [activeThemeId, setActiveThemeId] = useState<number>(0);
   //функция, меняющая активное id
   function setActiveThemeIdHandle(id: number) {
     setActiveThemeId(id)
@@ -41,9 +41,9 @@ export default function ClassPage({ classType }: Props) {
   return (
     <ContentWrapper>
       <h4 className="class_header">{HeaderMap[classType]}</h4>
-      <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} />
+      <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />
       {
-        activeThemeId && <FormulaList themeId={activeThemeId} />
+        Boolean(activeThemeId) && <FormulaList themeId={activeThemeId} />
       }
     </ContentWrapper>
   );

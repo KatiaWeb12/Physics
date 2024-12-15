@@ -24,3 +24,11 @@
   background: #17adbe;
   color: #ffffff;
 }
+.active_theme{
+  background: #17adbe;
+  color: #ffffff;
+  font-size: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+}

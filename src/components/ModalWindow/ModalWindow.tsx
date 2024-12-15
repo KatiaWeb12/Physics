@@ -27,7 +27,7 @@ export default function ModalWindow({ setIsLearnMoreHendler, formulaInfo: { imag
             <h2 className="topic">{title}</h2>
           </div>
           <div className="formula_info">
-            <img src={FormulaImg} alt="" />
+            <img src={image} alt="" />
             <div className="physical_quantities">
               {
                 //перебор физических величин по ключу
