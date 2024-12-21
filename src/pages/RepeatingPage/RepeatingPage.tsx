@@ -14,13 +14,13 @@ export default function RepeatingPage() {
   const { themes } = useAppSelector((state) => state.class);
   const [activeClass, setActiveClass] = useState<string>('')
   const [activeThemeId, setActiveThemeId] = useState<number>(0);
-  const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId)))
+  const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId))).sort(() => Math.random() - 0.5)
   const dispatch = useAppDispatch()
   function setActiveThemeIdHandle(id: number) {
     setActiveThemeId(id)
   }
   useEffect(() => {
-    if(activeClass){
+    if (activeClass) {
       agent.get(`/${activeClass}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
         dispatch(classActions.getData(data));
       })
@@ -30,7 +30,7 @@ export default function RepeatingPage() {
     <ContentWrapper>
       <ClassesList setActiveClass={setActiveClass} activeClass={activeClass} />
       {Boolean(activeClass) && <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />}
-      {(Boolean(activeClass) && Boolean(activeThemeId)) && <RepeatingCont formulas={formulas}/>}
+      {(Boolean(activeClass) && Boolean(activeThemeId)) && <RepeatingCont formulas={formulas} />}
     </ContentWrapper>
   );
 }

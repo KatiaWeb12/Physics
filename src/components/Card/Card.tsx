@@ -19,7 +19,7 @@ export default function Card({ formulaInfo }: Props) {
     <>
       {isLearnMore && (<ModalWindow setIsLearnMoreHendler={setIsLearnMoreHendler} formulaInfo={formulaInfo}/>)}
       <div className="card">
-        <img src="" alt="" />
+        <img src={formulaInfo.image} alt="" />
         <div className="card_info">
           <div className="topic_cont">
             <h6 className="topic">{formulaInfo.title}</h6>
