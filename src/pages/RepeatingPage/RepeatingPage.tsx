@@ -1,49 +1,36 @@
 import "./RepeatingPage.css";
-import Left from "../../static/arrow_left.png";
-import Right from "../../static/arrow_right.png";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { ContentWrapper } from "@/components";
-import RepeatingCard from "./components/RepeatingCard/RepeatingCard";
+import { useEffect, useState } from "react";
+import ClassesList from "@/components/ClassesList/ClassesList";
+import ClassThemesList from "../ClassPage/components/ClassThemesList";
+import { classActions, useAppDispatch, useAppSelector } from "@/redux";
+import { agent, ClassesDTO } from "@/api";
+import { AxiosResponse } from "axios";
+import RepeatingCont from "./components/RepeatingCont/RepeatingCont";
 
 //Страница: повторение формул по карточкам
 export default function RepeatingPage() {
+  const { themes } = useAppSelector((state) => state.class);
+  const [activeClass, setActiveClass] = useState<string>('')
+  const [activeThemeId, setActiveThemeId] = useState<number>(-1);
+  const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId)))
+  const dispatch = useAppDispatch()
+  function setActiveThemeIdHandle(id: number) {
+    setActiveThemeId(id)
+  }
+  useEffect(() => {
+    if(activeClass){
+      agent.get(`/${activeClass}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
+        dispatch(classActions.getData(data));
+      })
+    }
+  }, [activeClass, dispatch]);
   return (
     <ContentWrapper>
-      <div className="repeating">
-        <p className="rep_title">Повторение</p>
-        <div className="slider_cont">
-
-          <CarouselProvider
-            naturalSlideWidth={100}
-            naturalSlideHeight={30}
-            totalSlides={3}
-            className="cont"
-          >
-            <ButtonBack className="arrow_cont">
-              <div className="side">
-                <img src={Left} alt="left" className="arrow_but" />
-                <div className="topic_cont">
-                  <h6 className="topic">Назад</h6>
-                </div>
-              </div>
-            </ButtonBack>
-            <Slider>
-              <Slide index={0} className="rep_card"><RepeatingCard /></Slide>
-              <Slide index={1} className="rep_card"><RepeatingCard /></Slide>
-              <Slide index={2} className="rep_card"><RepeatingCard /></Slide>
-            </Slider>
-            <ButtonNext className="arrow_cont">
-              <div className="side">
-                <img src={Right} alt="left" className="arrow_but" />
-                <div className="topic_cont">
-                  <h6 className="topic">Вперёд</h6>
-                </div>
-              </div>
-            </ButtonNext>
-          </CarouselProvider>
-        </div>
-      </div>
+      <ClassesList setActiveClass={setActiveClass} activeClass={activeClass} />
+      {Boolean(activeClass) && <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />}
+      {(activeClass && activeThemeId >= 0) && <RepeatingCont formulas={formulas}/>}
     </ContentWrapper>
   );
 }
