@@ -13,7 +13,7 @@ import RepeatingCont from "./components/RepeatingCont/RepeatingCont";
 export default function RepeatingPage() {
   const { themes } = useAppSelector((state) => state.class);
   const [activeClass, setActiveClass] = useState<string>('')
-  const [activeThemeId, setActiveThemeId] = useState<number>(-1);
+  const [activeThemeId, setActiveThemeId] = useState<number>(0);
   const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId)))
   const dispatch = useAppDispatch()
   function setActiveThemeIdHandle(id: number) {
@@ -30,7 +30,7 @@ export default function RepeatingPage() {
     <ContentWrapper>
       <ClassesList setActiveClass={setActiveClass} activeClass={activeClass} />
       {Boolean(activeClass) && <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />}
-      {(activeClass && activeThemeId >= 0) && <RepeatingCont formulas={formulas}/>}
+      {(Boolean(activeClass) && Boolean(activeThemeId)) && <RepeatingCont formulas={formulas}/>}
     </ContentWrapper>
   );
 }

@@ -28,9 +28,9 @@ export default function RepeatingCont({ formulas }: Props) {
                   </div>
                </ButtonBack>
                <Slider>
-                  <Slide index={0} className="rep_card"><RepeatingCard /></Slide>
-                  <Slide index={1} className="rep_card"><RepeatingCard /></Slide>
-                  <Slide index={2} className="rep_card"><RepeatingCard /></Slide>
+                  {formulas.map((formula, index) =>
+                     <Slide index={index} className="rep_card"><RepeatingCard formula={formula}/></Slide>
+                  )}
                </Slider>
                <ButtonNext className="arrow_cont">
                   <div className="side">
