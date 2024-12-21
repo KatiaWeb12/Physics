@@ -1,0 +1,36 @@
+.slideInner___2mfX9 {
+  padding: 17px;
+  box-sizing: border-box;
+}
+.rep_card_button{
+  display: flex;
+  gap: 25px;
+}
+.formula_text {
+  font-size: 25px;
+}
+.card_button{
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  outline: none;
+  color: white;
+  background: #c1403d;
+  font-size: 23px;
+}
+.rounds{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.round{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0294a5;
+}
+.main_round{
+  width: 35px;
+  height: 35px;
+}
