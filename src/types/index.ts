@@ -3,6 +3,7 @@ type PhysicalQuantities = Record<string, string>
 export interface Formula {
   id: number;
   themeId: number;
+  classType: string;
   image: string;
   description: string;
   physical_devices?: string,

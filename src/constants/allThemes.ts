@@ -1,15 +1,15 @@
 import { agent, ClassesDTO } from "@/api";
-import { Formula } from "@/types";
+import { Theme } from "@/types";
 import { AxiosResponse } from "axios";
 
-let formulasList: Formula[] = [];
+let themesList: Theme[] = [];
 agent.get(`/class_7`).then(({ data }: AxiosResponse<ClassesDTO>) => {
-  formulasList.push(...data.formulas);
-});
+   themesList.push(...data.themes)
+})
 agent.get(`/class_8`).then(({ data }: AxiosResponse<ClassesDTO>) => {
-  formulasList.push(...data.formulas);
-});
+   themesList.push(...data.themes)
+})
 agent.get(`/class_9`).then(({ data }: AxiosResponse<ClassesDTO>) => {
-  formulasList.push(...data.formulas);
-});
-export default formulasList;
+   themesList.push(...data.themes)
+})
+export default themesList;

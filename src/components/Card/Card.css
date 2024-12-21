@@ -10,12 +10,13 @@
 .card img {
   height: 160px;
   object-fit: contain;
+  border: 3px solid #0294a5;
 }
 .card_info {
   display: flex;
   flex-direction: column;
 }
-.topic_cont{
+.topic_cont {
   display: flex;
   align-items: center;
   justify-content: center;

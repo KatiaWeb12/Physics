@@ -1,8 +1,7 @@
 import "./ModalWindow.css";
 import Close from "../../static/close.png";
-import FormulaImg from "../../static/formulas/class_7/Energy/Кинетическая энергия.png";
 import { Formula } from "@/types";
-import { useAppSelector } from "@/redux/hooks/useAppSelector";
+import themesList from "@/constants/allThemes";
 
 //типизация пропсов
 interface Props {
@@ -11,8 +10,8 @@ interface Props {
 }
 
 //компонент модального окна
-export default function ModalWindow({ setIsLearnMoreHendler, formulaInfo: { image, title, themeId, description, physical_devices, physical_quantities } }: Props) {
-  const theme = useAppSelector(state => state.class.themes.find(el => el.themeId === themeId))
+export default function ModalWindow({ setIsLearnMoreHendler, formulaInfo: { image, title, themeId, description, physical_devices, physical_quantities} }: Props) {
+  const theme = themesList.find((theme) => theme.themeId === themeId)
   return (
     <div className="modalCont">
       <div className="modalWindow">
