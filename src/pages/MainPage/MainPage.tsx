@@ -12,25 +12,29 @@ import { useIntersectionObserver } from '@siberiacancode/reactuse';
 const REQEST_LIMIT = 10;
 export default function MainPage() {
   const [formulasList, setFormulasList] = useState<Formula[]>([]);
-  const [offset, setOffset] = useState<number>(0)
-  //кастомный хук
+  const [offset, setOffset] = useState<number>(0) //число, с которого происходит добавка формул в список
+  //кастомный хук, который позволяет управлять состоянием данных с сервера (ошибка, загрузка)
   const { isLoading, isError } = useQuery(() => new Promise((resolve) => {
+    //промис для обработки ассинхронной операции
     setTimeout(() => {
+      //отправка запроса
       resolve(agent.get(`/all_formulas?_start=${offset}&_limit=${REQEST_LIMIT}`).then(({ data }: AxiosResponse<Formula[]>) => {
         return data
       }))
     }, 1000)
   }), {
-    keys: [offset],
+    keys: [offset], //зависимость от ofset
     onSuccess: (formulasList: Formula[]) => {
-      setFormulasList(prev => prev.concat(formulasList))
+      setFormulasList(prev => prev.concat(formulasList)) //изменение списка формул в случае успеха
     }
   });
-  const { ref } = useIntersectionObserver<HTMLDivElement>({
-    threshold: 1,
+
+  //кастомный хук, который позволяет следить за областью видимости
+  const { ref } = useIntersectionObserver<HTMLDivElement>({ //ref - привязка к html-элементу
+    threshold: 1, //объект виден полностью
     onChange: (entry) => {
-      if (entry.isIntersecting) {
-        setOffset((prev) => prev + REQEST_LIMIT)
+      if (entry.isIntersecting) { //если виден
+        setOffset((prev) => prev + REQEST_LIMIT) //меняем ofset(добавляем ещё формул в список)
       }
     }
   })
