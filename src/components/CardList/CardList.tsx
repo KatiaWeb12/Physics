@@ -10,7 +10,7 @@ export default function CardList({formulas}:Props) {
   return (
     <div className="card_list">
       {
-        formulas.map(formula => <Card formulaInfo={formula}/>)
+        formulas.map(formula => <Card key={formula.id} formulaInfo={formula}/>)
       }
     </div>
   );

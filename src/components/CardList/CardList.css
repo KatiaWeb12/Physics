@@ -5,7 +5,6 @@
    align-content: flex-start;
    align-items: stretch;
    gap: 66px;
-   width: 95%;
-   max-width: 1600px;
    margin: 30px auto 50px auto;
+   padding-bottom: 20px;
  }
