@@ -5,8 +5,8 @@ import "./MainPage.css";
 import { useState } from "react";
 import { Formula } from "@/types";
 import { useQuery } from '@siberiacancode/reactuse';
-import CardSkeleton from "@/components/Card/CardSkeleton";
 import { useIntersectionObserver } from '@siberiacancode/reactuse';
+import CardSkeletonList from "@/components/Card/CardSkeletonList";
 
 //Главная страница
 const REQEST_LIMIT = 10;
@@ -41,14 +41,16 @@ export default function MainPage() {
   if (isError) {
     return (
       <ContentWrapper>
-        <p>Произошла ошибка. Попробуйте обновить страницу.</p>
+        <div className="error">
+          <p>Произошла ошибка. Попробуйте обновить страницу.</p>
+        </div>
       </ContentWrapper>
     )
   }
-  if (isLoading && !formulasList.length) {
+  if (isLoading) {
     return (
       <ContentWrapper>
-        <CardSkeleton />
+        <CardSkeletonList formulaListLength={formulasList.length + REQEST_LIMIT} />
       </ContentWrapper>
     )
   }

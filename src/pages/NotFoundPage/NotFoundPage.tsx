@@ -1,8 +1,13 @@
+import { ContentWrapper } from '@/components'
 import './NotFoundPage.css'
 
-export default function NotFoundPage(){
+export default function NotFoundPage() {
   //Страница: некорректная ссылка
-    return(
-      <div>NotFound</div>
-    )
+  return (
+    <ContentWrapper>
+      <div className="error">
+        <p>Страница не найдена.</p>
+      </div>
+    </ContentWrapper>
+  )
 }
