@@ -2,8 +2,8 @@ import { ButtonBack, ButtonNext, CarouselProvider, Slide, Slider } from 'pure-re
 import './RepeatingCont.css'
 import Left from "../../../../static/arrow_left.png";
 import Right from "../../../../static/arrow_right.png";
-import RepeatingCard from '../RepeatingCard/RepeatingCard';
 import { Formula } from '@/types';
+import RepeatingSlide from '../RepeatingSlide/RepeatingSlide';
 
 interface Props {
    formulas: Formula[];
@@ -29,7 +29,9 @@ export default function RepeatingCont({ formulas }: Props) {
                </ButtonBack>
                <Slider>
                   {formulas.map((formula, index) =>
-                     <Slide index={index} className="rep_card"><RepeatingCard formula={formula}/></Slide>
+                     <Slide index={index} className="rep_card">
+                        <RepeatingSlide formula={formula} />
+                     </Slide>
                   )}
                </Slider>
                <ButtonNext className="arrow_cont">
