@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './RepeatingSlide.css'
 import ReactCardFlip from 'react-card-flip'
 import { Formula } from '@/types'
 import RepeatingCard from '../RepeatingCard/RepeatingCard';

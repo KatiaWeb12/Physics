@@ -29,7 +29,7 @@ export default function RepeatingCont({ formulas }: Props) {
                </ButtonBack>
                <Slider>
                   {formulas.map((formula, index) =>
-                     <Slide index={index} className="rep_card">
+                     <Slide index={index}>
                         <RepeatingSlide formula={formula} />
                      </Slide>
                   )}

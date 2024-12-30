@@ -10,7 +10,7 @@ export default function RepeatingCard({ formula: { title, image }, slideType, on
    return (
       <>
          {slideType === 'question' ? (
-            <div onClick={onFlippHendle}>
+            <div onClick={onFlippHendle} className="rep_card">
                <div className="rounds">
                   <div className="round"></div>
                   <div className="round main_round"></div>
@@ -23,7 +23,7 @@ export default function RepeatingCard({ formula: { title, image }, slideType, on
                </div>
             </div>
          ) : (
-            <div onClick={onFlippHendle}>
+            <div onClick={onFlippHendle} className="rep_card">
                <img src={image} className='formula_slide_image' alt="FormulaImage" />
             </div>
          )}
