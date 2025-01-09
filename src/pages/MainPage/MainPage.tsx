@@ -1,21 +1,20 @@
-import type { AxiosResponse } from "axios";
-import { agent } from "@/api";
-import { CardList, ContentWrapper } from "@/components";
-import "./MainPage.css";
 import { useState } from "react";
-import { Formula } from "@/types";
-import { useQuery } from '@siberiacancode/reactuse';
+import type { AxiosResponse } from "axios";
 import { useIntersectionObserver } from '@siberiacancode/reactuse';
-import CardSkeletonList from "@/components/Card/CardSkeletonList";
+import { useQuery } from '@siberiacancode/reactuse';
+import { agent } from "@/api";
+import { CardList, ContentWrapper, CardSkeletonList } from "@/components";
+import type { Formula } from "@/types";
 
 //Главная страница
 const REQEST_LIMIT = 10;
 export default function MainPage() {
   const [formulasList, setFormulasList] = useState<Formula[]>([]);
-  const [offset, setOffset] = useState<number>(0) //число, с которого происходит добавка формул в список
+  const [offset, setOffset] = useState(0) //число, с которого происходит добавка формул в список
+  const [isLast, setIsLast] = useState(false);
   //кастомный хук, который позволяет управлять состоянием данных с сервера (ошибка, загрузка)
-  const { isLoading, isError } = useQuery(() => new Promise((resolve) => {
-    //промис для обработки ассинхронной операции
+  const { isFetching, isError } = useQuery(() => new Promise((resolve) => {
+    //промис для выполнения асинхронной операции с искуственной задержкой
     setTimeout(() => {
       //отправка запроса
       resolve(agent.get(`/all_formulas?_start=${offset}&_limit=${REQEST_LIMIT}`).then(({ data }: AxiosResponse<Formula[]>) => {
@@ -23,9 +22,12 @@ export default function MainPage() {
       }))
     }, 1000)
   }), {
-    keys: [offset], //зависимость от ofset
+    keys: [offset], //зависимость от offset
     onSuccess: (formulasList: Formula[]) => {
       setFormulasList(prev => prev.concat(formulasList)) //изменение списка формул в случае успеха
+      if (formulasList.length < REQEST_LIMIT) {
+        setIsLast(true);
+      }
     }
   });
 
@@ -47,17 +49,17 @@ export default function MainPage() {
       </ContentWrapper>
     )
   }
-  if (isLoading) {
+  if (isFetching && !formulasList.length) {
     return (
       <ContentWrapper>
-        <CardSkeletonList formulaListLength={formulasList.length + REQEST_LIMIT} />
+        <CardSkeletonList />
       </ContentWrapper>
     )
   }
   return (
     <ContentWrapper>
-      {Boolean(formulasList.length) && <CardList formulas={formulasList} />}
-      <div ref={ref} style={{ width: "100%", height: "1px" }}></div>
+      {Boolean(formulasList.length) && <CardList formulas={formulasList} isLoading={isFetching} />}
+      {!isLast && <div ref={ref} style={{ width: "100%", height: "1px" }} />}
     </ContentWrapper>
   );
 }
