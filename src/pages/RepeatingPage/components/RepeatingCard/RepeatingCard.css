@@ -24,6 +24,7 @@
 }
 .card_button {
   border-radius: 14px;
+  transition: background 0.2s;
   cursor: pointer;
   padding: 8px;
   border: none;

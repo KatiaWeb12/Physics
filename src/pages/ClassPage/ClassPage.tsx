@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { type AxiosResponse } from "axios";
-import { classActions } from "@/redux/class/slices/classSlice";
-import { useAppDispatch } from "@/redux/hooks/useAppDispatch";
-import { useAppSelector} from "@/redux/hooks/useAppSelector";
-import { agent, ClassesDTO } from "@/api";
+import { classActions, useAppDispatch, useAppSelector } from "@/redux";
 import { ContentWrapper } from "@/components";
+import { agent, type ClassesDTO } from "@/api";
+import FormulaList from "./components/FormulaListPage/FormulaList";
 import ClassThemesList from "./components/ClassThemesList";
 import "./ClassPage.css";
-import FormulaList from "./components/FormulaListPage/FormulaList";
 
 //типизация пропса -> тип класса
 interface Props {
@@ -36,7 +34,7 @@ export default function ClassPage({ classType }: Props) {
     agent.get(`/${classType}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
       dispatch(classActions.getData(data));
     });
-  }, [classType, dispatch]);
+  }, [classType]);
 
   return (
     <ContentWrapper>
