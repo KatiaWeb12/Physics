@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { AxiosResponse } from "axios";
 import { useIntersectionObserver } from '@siberiacancode/reactuse';
 import { useQuery } from '@siberiacancode/reactuse';
 import { agent } from "@/api";
-import { CardList, ContentWrapper, CardSkeletonList } from "@/components";
-import type { Formula } from "@/types";
+import { CardList, ContentWrapper, CardSkeletonList, ErrorContent } from "@/components";
+import type { Formula, Theme } from "@/types";
+import { classActions, useAppDispatch } from "@/redux";
 
 //Главная страница
 const REQEST_LIMIT = 10;
 export default function MainPage() {
+  const dispatch = useAppDispatch();
   const [formulasList, setFormulasList] = useState<Formula[]>([]);
   const [offset, setOffset] = useState(0) //число, с которого происходит добавка формул в список
   const [isLast, setIsLast] = useState(false);
@@ -40,12 +42,19 @@ export default function MainPage() {
       }
     }
   })
+
+  useEffect(() => {
+    agent.get('/themes').then(({ data }: AxiosResponse<Theme[]>) => {
+      dispatch(classActions.seThemes(data))
+    })
+    return () => {
+      dispatch(classActions.resetData());
+    }
+  }, [])
   if (isError) {
     return (
       <ContentWrapper>
-        <div className="error">
-          <p>Произошла ошибка. Попробуйте обновить страницу.</p>
-        </div>
+        <ErrorContent />
       </ContentWrapper>
     )
   }

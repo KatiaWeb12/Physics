@@ -92,15 +92,3 @@
   height: 40px;
   width: 100px;
 }
-.error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #17adbe;
-  box-sizing: border-box;
-  padding: 0px 8px;
-}
-.error p {
-  color: white;
-  font-size: 30px;
-}

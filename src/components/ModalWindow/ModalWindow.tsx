@@ -1,7 +1,7 @@
-import themesList from "@/constants/allThemes";
 import "./ModalWindow.css";
-import Close from "../../static/close.png";
-import { Formula } from "@/types";
+import { useAppSelector } from "@/redux";
+import Close from "@/static/close.png";
+import type { Formula } from "@/types";
 
 //типизация пропсов
 interface Props {
@@ -21,7 +21,7 @@ export default function ModalWindow(
       physical_devices,
       physical_quantities
     } }: Props) {
-  const theme = themesList.find((theme) => theme.themeId === themeId);
+  const theme = useAppSelector(state => state.class.themes.find(el => el.themeId === themeId));
   return (
     <div className="modalCont">
       <div className="modalWindow">
