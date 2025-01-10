@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import { Formula } from '@/types'
-import RepeatingCard from '../RepeatingCard/RepeatingCard';
+import RepeatingCard from './RepeatingCard/RepeatingCard';
 
 interface Props {
    formula: Formula;

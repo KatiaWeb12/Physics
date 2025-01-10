@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { classActions, useAppDispatch, useAppSelector } from "@/redux";
 import { ContentWrapper, ErrorContent } from "@/components";
-import type { Formula, Theme } from "@/types";
+import type { ClassTypes, Formula, Theme } from "@/types";
+import { ClassesListNames } from "@/constants";
 import { agent } from "@/api";
 import ClassThemesList from "./components/ClassThemesList";
 import FormulaList from "./components/FormulaList";
@@ -11,13 +12,6 @@ import "./ClassPage.css";
 interface Props {
   classType: ClassTypes;
 }
-type ClassTypes = "class_7" | "class_8" | "class_9";
-
-const HeaderMap: Record<ClassTypes, string> = {
-  class_7: "7 класс",
-  class_8: "8 класс",
-  class_9: "9 класс",
-};
 
 //Страница: формулы по классу
 export default function ClassPage({ classType }: Props) {
@@ -53,7 +47,7 @@ export default function ClassPage({ classType }: Props) {
   }
   return (
     <ContentWrapper>
-      <h4 className="class_header">{HeaderMap[classType]}</h4>
+      <h4 className="class_header">{ClassesListNames[classType]}</h4>
       <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />
       {
         Boolean(activeThemeId) && <FormulaList themeId={activeThemeId} />
