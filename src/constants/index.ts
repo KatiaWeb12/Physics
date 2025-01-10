@@ -1,3 +1,5 @@
+import type { ClassTypes } from "@/types";
+
 //ссылки для роутинга
 export const ROOT_ROUTES = Object.freeze({
    addFormula: "/add_formula",
@@ -8,3 +10,9 @@ export const ROOT_ROUTES = Object.freeze({
    repeating: "/repeating",
    main_page: '/main_page'
 })
+
+export const ClassesListNames: Record<ClassTypes, string> = {
+   class_7: "7 класс",
+   class_8: "8 класс",
+   class_9: "9 класс",
+};

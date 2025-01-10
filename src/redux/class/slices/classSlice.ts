@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { ClassSchema } from "../types";
 
 //начальное значение
@@ -12,7 +12,10 @@ const classSlice = createSlice({
   initialState,
   reducers: {
     //добавление данных в store
-    getData: (_, { payload }) => payload,
+    getData: (_, { payload }: PayloadAction<ClassSchema>) => payload,
+    seThemes: (state, { payload }: PayloadAction<ClassSchema['themes']>) => {
+      state.themes = payload;
+    },
     //очещение store
     resetData: () => initialState,
   },

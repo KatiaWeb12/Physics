@@ -1,36 +1,56 @@
-import "./RepeatingPage.css";
-import 'pure-react-carousel/dist/react-carousel.es.css';
-import { ContentWrapper } from "@/components";
 import { useEffect, useState } from "react";
-import ClassesList from "@/components/ClassesList/ClassesList";
-import ClassThemesList from "../ClassPage/components/ClassThemesList";
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import { classActions, useAppDispatch, useAppSelector } from "@/redux";
-import { agent, ClassesDTO } from "@/api";
-import { AxiosResponse } from "axios";
-import RepeatingCont from "./components/RepeatingCont/RepeatingCont";
+import ClassesList from "@/components/ClassesList/ClassesList";
+import { ClassTypes, Formula, Theme } from "@/types";
+import { ContentWrapper } from "@/components";
+import { agent } from "@/api";
+import ClassThemesList from "../ClassPage/components/ClassThemesList";
+import RepeatingSlider from "./components/RepeatingSlider/RepeatingSlider";
 
 //Страница: повторение формул по карточкам
 export default function RepeatingPage() {
   const { themes } = useAppSelector((state) => state.class);
-  const [activeClass, setActiveClass] = useState<string>('')
+  const [activeClass, setActiveClass] = useState<ClassTypes>();
   const [activeThemeId, setActiveThemeId] = useState<number>(0);
   const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId))).sort(() => Math.random() - 0.5)
   const dispatch = useAppDispatch()
   function setActiveThemeIdHandle(id: number) {
     setActiveThemeId(id)
   }
+  function setActiveClassHandle(newValue: ClassTypes) {
+    setActiveClass(newValue);
+    setActiveThemeId(0);
+  }
   useEffect(() => {
-    if (activeClass) {
-      agent.get(`/${activeClass}`).then(({ data }: AxiosResponse<ClassesDTO>) => {
-        dispatch(classActions.getData(data));
-      })
+    async function getData() {
+      try {
+        const { data: formulas } = await agent.get<Formula[]>(`/all_formulas?classType=${activeClass}`);
+        const { data: themes } = await agent.get<Theme[]>(`/themes?classType=${activeClass}`);
+        dispatch(classActions.getData({
+          formulas,
+          themes,
+        }))
+      }
+      catch (err) {
+        console.info(err);
+      }
     }
-  }, [activeClass, dispatch]);
+    if (activeClass) {
+      getData()
+    }
+  }, [activeClass]);
   return (
     <ContentWrapper>
-      <ClassesList setActiveClass={setActiveClass} activeClass={activeClass} />
-      {Boolean(activeClass) && <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />}
-      {(Boolean(activeClass) && Boolean(activeThemeId)) && <RepeatingCont formulas={formulas} />}
+      <ClassesList setActiveClass={setActiveClassHandle} activeClass={activeClass} />
+      {Boolean(activeClass) && (
+        <ClassThemesList
+          setActiveThemeId={setActiveThemeIdHandle}
+          activeThemeId={activeThemeId}
+          themes={themes}
+        />
+      )}
+      {Boolean(activeClass) && Boolean(activeThemeId) && <RepeatingSlider formulas={formulas} />}
     </ContentWrapper>
   );
 }

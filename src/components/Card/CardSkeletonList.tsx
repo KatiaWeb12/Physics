@@ -1,14 +1,9 @@
 import CardSkeleton from './CardSkeleton'
 
-interface Props {
-   formulaListLength: Number;
-}
-
-export default function CardSkeletonList({ formulaListLength }: Props) {
-   let skeletonList: Number[] = Array(formulaListLength).fill(0)
+export default function CardSkeletonList() {
    return (
       <div className="card_list">
-         {skeletonList.map((_, i) => <CardSkeleton key={i} />)}
+         {[1, 2, 3, 4].map((_, i) => <CardSkeleton key={i} />)}
       </div>
    )
 }

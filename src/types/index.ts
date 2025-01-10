@@ -14,5 +14,6 @@ export interface Formula {
 export interface Theme {
   themeId: number;
   themeName: string;
-
 }
+
+export type ClassTypes = "class_7" | "class_8" | "class_9";
