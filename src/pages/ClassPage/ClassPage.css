@@ -2,11 +2,9 @@
   width: 100%;
   display: flex;
   gap: 32px;
-  margin-top: 20px;
+  margin-top: 32px;
   flex-wrap: wrap;
-}
-.class_topics{
-   align-items: center;
+  align-items: center;
 }
 .class_header{
    font-size: 40px;
@@ -15,20 +13,13 @@
 .topic_cont_class {
   padding: 10px;
   background: #03353e;
+  transition: background 0.2s;
   font-size: 25px;
   cursor: pointer;
   text-decoration: none;
   color: #ffffff;
 }
-.topic_cont_class:hover {
+.active_theme, .topic_cont_class:hover{
   background: #17adbe;
   color: #ffffff;
-}
-.active_theme{
-  background: #17adbe;
-  color: #ffffff;
-  font-size: 25px;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 10px;
 }

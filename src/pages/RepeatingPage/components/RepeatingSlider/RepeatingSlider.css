@@ -1,0 +1,24 @@
+.repeating {
+  margin: 96px auto 0;
+  width: 70%;
+}
+.carousel_wrapper{
+  position: relative;
+}
+.slider_button {
+  outline: none;
+  position: absolute;
+  pointer-events: all!important;
+  cursor: pointer;
+  border: none;
+  top: 50%;
+  width: 32px!important;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.slider_prev_button {
+  left:0
+}
+.slider_next_button {
+  right:0
+}

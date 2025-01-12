@@ -1,7 +1,7 @@
 import "./ModalWindow.css";
-import Close from "../../static/close.png";
-import { Formula } from "@/types";
-import themesList from "@/constants/allThemes";
+import { useAppSelector } from "@/redux";
+import Close from "@/static/close.png";
+import type { Formula } from "@/types";
 
 //типизация пропсов
 interface Props {
@@ -10,13 +10,23 @@ interface Props {
 }
 
 //компонент модального окна
-export default function ModalWindow({ setIsLearnMoreHendler, formulaInfo: { image, title, themeId, description, physical_devices, physical_quantities} }: Props) {
-  const theme = themesList.find((theme) => theme.themeId === themeId)
+export default function ModalWindow(
+  {
+    setIsLearnMoreHendler,
+    formulaInfo: {
+      image,
+      title,
+      themeId,
+      description,
+      physical_devices,
+      physical_quantities
+    } }: Props) {
+  const theme = useAppSelector(state => state.class.themes.find(el => el.themeId === themeId));
   return (
     <div className="modalCont">
       <div className="modalWindow">
         <div className="closeWindow" onClick={setIsLearnMoreHendler}>
-          <img src={Close} alt="" />
+          <img src={Close} alt="close_modal" />
         </div>
         <div className="modalInfo">
           <div className="topic_cont_theme topic_cont">
@@ -26,7 +36,7 @@ export default function ModalWindow({ setIsLearnMoreHendler, formulaInfo: { imag
             <h2 className="topic">{title}</h2>
           </div>
           <div className="formula_info">
-            <img src={image} alt="" />
+            <img src={image} alt="formula_img" />
             <div className="physical_quantities">
               {
                 //перебор физических величин по ключу
@@ -58,8 +68,6 @@ export default function ModalWindow({ setIsLearnMoreHendler, formulaInfo: { imag
               </div>
             )
           }
-
-          <button className="modal_button" onClick={setIsLearnMoreHendler}>Закрыть окно</button>
         </div>
       </div>
     </div>

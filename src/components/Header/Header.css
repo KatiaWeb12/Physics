@@ -13,6 +13,7 @@
   gap: 38px;
 }
 .menu_cont{
+  transition: background 0.2s;
   color: #ebf2ea;
   font-size: 24px;
   cursor: pointer;
