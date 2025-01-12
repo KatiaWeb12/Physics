@@ -900,5 +900,14 @@
         "d": "расстояние от предмета до линзы [м]"
       }
     }
-  ]
+  ],
+  "test": [
+    {
+      "testId": 1,
+      "classType": "class_7",
+      "question": "",
+      "testImage": "",
+      "correctAnswer": ""
+    }
+  ] 
 }

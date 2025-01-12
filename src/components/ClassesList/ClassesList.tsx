@@ -1,24 +1,25 @@
 import { ClassesListNames } from '@/constants';
-import type { ClassTypes } from '@/types';
 import ClassItem from '../ClassItem/ClassItem';
 
 interface Props {
-   setActiveClass: (activeId: ClassTypes) => void;
-   activeClass?: ClassTypes;
+   setActiveTab: (activeId: string) => void;
+   activeTab?: string;
+   tabs: string[];
 }
-export default function ClassesList({ activeClass, setActiveClass }: Props) {
+export default function Tabs({ activeTab, setActiveTab, tabs }: Props) {
    return (
       <div className="class_topics">
          {
-            (Object.keys(ClassesListNames) as ClassTypes[]).map(key => (
+            (tabs.map(key => (
                <ClassItem
-                  nameOfClass={ClassesListNames[key]}
-                  setActiveClass={setActiveClass}
-                  activeClass={activeClass}
+                  nameOfClass={key}
+                  setActiveClass={setActiveTab}
+                  activeClass={activeTab}
                   typeOfClass={key}
                   key={key}
                />
-            ))}
+            )))
+         }
       </div>
    )
 }

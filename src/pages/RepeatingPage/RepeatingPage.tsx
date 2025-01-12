@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { classActions, useAppDispatch, useAppSelector } from "@/redux";
-import ClassesList from "@/components/ClassesList/ClassesList";
 import { ClassTypes, Formula, Theme } from "@/types";
 import { ContentWrapper } from "@/components";
 import { agent } from "@/api";
 import ClassThemesList from "../ClassPage/components/ClassThemesList";
 import RepeatingSlider from "./components/RepeatingSlider/RepeatingSlider";
+import Tabs from "@/components/ClassesList/ClassesList";
+import { ClassesListNames } from "@/constants";
 
 //Страница: повторение формул по карточкам
 export default function RepeatingPage() {
   const { themes } = useAppSelector((state) => state.class);
-  const [activeClass, setActiveClass] = useState<ClassTypes>();
+  const [activeClass, setActiveClass] = useState<string>();
   const [activeThemeId, setActiveThemeId] = useState<number>(0);
   const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId))).sort(() => Math.random() - 0.5)
   const dispatch = useAppDispatch()
   function setActiveThemeIdHandle(id: number) {
     setActiveThemeId(id)
   }
-  function setActiveClassHandle(newValue: ClassTypes) {
+  function setActiveClassHandle(newValue: string) {
     setActiveClass(newValue);
     setActiveThemeId(0);
   }
@@ -41,7 +42,7 @@ export default function RepeatingPage() {
   }, [activeClass]);
   return (
     <ContentWrapper>
-      <ClassesList setActiveClass={setActiveClassHandle} activeClass={activeClass} />
+      <Tabs setActiveTab={setActiveClassHandle} activeTab={activeClass} tabs={Object.values(ClassesListNames) as ClassTypes[]}/>
       {Boolean(activeClass) && (
         <ClassThemesList
           setActiveThemeId={setActiveThemeIdHandle}

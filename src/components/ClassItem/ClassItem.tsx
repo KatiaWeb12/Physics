@@ -1,10 +1,9 @@
-import type { ClassTypes } from "@/types";
 import classNames from "classnames";
 
 interface Props {
-   setActiveClass: (activeId: ClassTypes) => void;
-   activeClass?: ClassTypes;
-   typeOfClass: ClassTypes;
+   setActiveClass: (activeId: string) => void;
+   activeClass?: string;
+   typeOfClass: string;
    nameOfClass: string;
 }
 export default function ClassItem({ activeClass, setActiveClass, nameOfClass, typeOfClass }: Props) {

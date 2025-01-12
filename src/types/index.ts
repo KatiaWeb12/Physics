@@ -1,12 +1,12 @@
-type PhysicalQuantities = Record<string, string>
+type PhysicalQuantities = Record<string, string>;
 //типизация структуры формулы
 export interface Formula {
   id: number;
   themeId: number;
-  classType: string;
+  classType: ClassTypes;
   image: string;
   description: string;
-  physical_devices?: string,
+  physical_devices?: string;
   title: string;
   physical_quantities: PhysicalQuantities;
 }
@@ -14,6 +14,15 @@ export interface Formula {
 export interface Theme {
   themeId: number;
   themeName: string;
+}
+
+//типизация структуры тестового задания
+export interface TestingTask {
+  testId: number;
+  classType: ClassTypes;
+  question: string;
+  testImage?: string;
+  correctAnswer: string;
 }
 
 export type ClassTypes = "class_7" | "class_8" | "class_9";
