@@ -13,7 +13,7 @@ const classSlice = createSlice({
   reducers: {
     //добавление данных в store
     getData: (_, { payload }: PayloadAction<ClassSchema>) => payload,
-    seThemes: (state, { payload }: PayloadAction<ClassSchema['themes']>) => {
+    setThemes: (state, { payload }: PayloadAction<ClassSchema['themes']>) => {
       state.themes = payload;
     },
     //очещение store

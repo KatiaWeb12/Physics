@@ -19,7 +19,7 @@ export default function RepeatingSlider({ formulas }: Props) {
             renderArrowPrev={(clickHandler: () => void, hasPrev: boolean) => hasPrev ? <img onClick={clickHandler} className="slider_button slider_prev_button" src={Left} alt="prev-button" /> : undefined}
             renderArrowNext={(clickHandler: () => void, hasNext: boolean) => hasNext ? <img onClick={clickHandler} className="slider_button slider_next_button" src={Right} alt="next-button" /> : undefined}
          >
-            {formulas.map((formula, index) =>
+            {formulas.map((formula) =>
                <RepeatingSlide formula={formula} key={formula.id} />
             )}
          </Carousel>

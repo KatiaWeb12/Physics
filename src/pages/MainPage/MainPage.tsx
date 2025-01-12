@@ -12,7 +12,9 @@ const REQEST_LIMIT = 10;
 export default function MainPage() {
   const dispatch = useAppDispatch();
   const [formulasList, setFormulasList] = useState<Formula[]>([]);
-  const [offset, setOffset] = useState(0) //число, с которого происходит добавка формул в список
+  //число, с которого происходит добавка формул в список
+  const [offset, setOffset] = useState(0)
+  //
   const [isLast, setIsLast] = useState(false);
   //кастомный хук, который позволяет управлять состоянием данных с сервера (ошибка, загрузка)
   const { isFetching, isError } = useQuery(() => new Promise((resolve) => {
@@ -45,7 +47,7 @@ export default function MainPage() {
 
   useEffect(() => {
     agent.get('/themes').then(({ data }: AxiosResponse<Theme[]>) => {
-      dispatch(classActions.seThemes(data))
+      dispatch(classActions.setThemes(data))
     })
     return () => {
       dispatch(classActions.resetData());

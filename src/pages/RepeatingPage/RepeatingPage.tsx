@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import 'pure-react-carousel/dist/react-carousel.es.css';
 import { classActions, useAppDispatch, useAppSelector } from "@/redux";
 import ClassesList from "@/components/ClassesList/ClassesList";
 import { ClassTypes, Formula, Theme } from "@/types";
