@@ -1,0 +1,12 @@
+.test_title{
+   width: 350px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #C1403D;
+}
+.test_title h2{
+   font-size: 30px;
+   color: white;
+}
