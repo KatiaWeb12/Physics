@@ -13,13 +13,16 @@ interface Props {
   classType: ClassTypes;
 }
 
-//Страница: формулы по классу
+// Страница: формулы по классу
 export default function ClassPage({ classType }: Props) {
   const dispatch = useAppDispatch();
+  // темы
   const { themes } = useAppSelector((state) => state.class);
+  //активная тема
   const [activeThemeId, setActiveThemeId] = useState<number>(0);
+  // ошибка
   const [error, setError] = useState(false);
-  //функция, меняющая активное id
+  // функция, меняющая активное id
   function setActiveThemeIdHandle(id: number) {
     setActiveThemeId(id)
   }
@@ -27,7 +30,9 @@ export default function ClassPage({ classType }: Props) {
   useEffect(() => {
     async function getData() {
       try {
+        // получение формул
         const { data: formulas } = await agent.get<Formula[]>(`/all_formulas?classType=${classType}`);
+        // получение тем
         const { data: themes } = await agent.get<Theme[]>(`/themes?classType=${classType}`);
         dispatch(classActions.getData({
           formulas,

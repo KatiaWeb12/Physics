@@ -8,13 +8,15 @@ import type { Formula, Theme } from "@/types";
 import { classActions, useAppDispatch } from "@/redux";
 
 //Главная страница
+//Количество карточек в порции
 const REQEST_LIMIT = 10;
 export default function MainPage() {
   const dispatch = useAppDispatch();
+  //список формул
   const [formulasList, setFormulasList] = useState<Formula[]>([]);
   //число, с которого происходит добавка формул в список
   const [offset, setOffset] = useState(0)
-  //
+  //переменная показывает: создан ли последний элемент из базы
   const [isLast, setIsLast] = useState(false);
   //кастомный хук, который позволяет управлять состоянием данных с сервера (ошибка, загрузка)
   const { isFetching, isError } = useQuery(() => new Promise((resolve) => {
@@ -40,7 +42,7 @@ export default function MainPage() {
     threshold: 1, //объект виден полностью
     onChange: (entry) => {
       if (entry.isIntersecting) { //если виден
-        setOffset((prev) => prev + REQEST_LIMIT) //меняем ofset(добавляем ещё формул в список)
+        setOffset((prev) => prev + REQEST_LIMIT) //меняем ofset (добавляем ещё формул в список)
       }
     }
   })
@@ -53,6 +55,7 @@ export default function MainPage() {
       dispatch(classActions.resetData());
     }
   }, [])
+  //если ошибка
   if (isError) {
     return (
       <ContentWrapper>
@@ -60,6 +63,7 @@ export default function MainPage() {
       </ContentWrapper>
     )
   }
+  //если идёт стартовая загрузка и формул пока нет
   if (isFetching && !formulasList.length) {
     return (
       <ContentWrapper>

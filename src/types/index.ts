@@ -26,3 +26,4 @@ export interface TestingTask {
 }
 
 export type ClassTypes = "class_7" | "class_8" | "class_9";
+export type TabTypes = ClassTypes | "all";

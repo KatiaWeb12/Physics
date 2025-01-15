@@ -11,12 +11,13 @@ const classSlice = createSlice({
   name: "class",
   initialState,
   reducers: {
-    //добавление данных в store
+    //добавление класса в store
     getData: (_, { payload }: PayloadAction<ClassSchema>) => payload,
+    //добавление тем в store
     setThemes: (state, { payload }: PayloadAction<ClassSchema['themes']>) => {
       state.themes = payload;
     },
-    //очещение store
+    //очищение store
     resetData: () => initialState,
   },
 });
