@@ -1,12 +1,11 @@
-.test_title{
-   width: 350px;
-   height: 50px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: #C1403D;
+.test_title {
+  display: inline;
+  padding: 13px 18px;
+  background: #c1403d;
+  font-size: 30px;
+  color: white;
+  margin: 0;
 }
-.test_title h2{
-   font-size: 30px;
-   color: white;
+.test_content {
+  margin-top: 48px;
 }

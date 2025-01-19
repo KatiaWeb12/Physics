@@ -44,7 +44,7 @@ export default function ClassPage({ classType }: Props) {
       }
     }
     getData()
-  }, [classType]);
+  }, [classType, dispatch]);
   if (error) {
     return <ContentWrapper>
       <ErrorContent />

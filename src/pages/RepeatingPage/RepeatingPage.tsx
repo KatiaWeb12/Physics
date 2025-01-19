@@ -5,7 +5,7 @@ import { ContentWrapper } from "@/components";
 import { agent } from "@/api";
 import ClassThemesList from "../ClassPage/components/ClassThemesList";
 import RepeatingSlider from "./components/RepeatingSlider/RepeatingSlider";
-import Tabs from "@/components/ClassesList/ClassesList";
+import Tabs from "@/components/Tabs/Tabs";
 
 // Страница: повторение формул по карточкам
 export default function RepeatingPage() {
@@ -47,10 +47,10 @@ export default function RepeatingPage() {
     if (activeClass) {
       getData()
     }
-  }, [activeClass]);
+  }, [activeClass, dispatch]);
   return (
     <ContentWrapper>
-      <Tabs setActiveTab={setActiveClassHandle} activeTab={activeClass} all={false}/>
+      <Tabs setActiveTab={setActiveClassHandle} activeTab={activeClass} all={false} />
       {Boolean(activeClass) && (
         <ClassThemesList
           setActiveThemeId={setActiveThemeIdHandle}

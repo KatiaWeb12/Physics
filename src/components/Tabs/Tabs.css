@@ -1,0 +1,13 @@
+.tabs {
+   width: 100%;
+   display: flex;
+   gap: 32px;
+   margin-top: 32px;
+   flex-wrap: wrap;
+   align-items: center;
+}
+.disabled_tabs{
+   opacity: 0.5;
+   /* disabled */
+   pointer-events: none; 
+}
