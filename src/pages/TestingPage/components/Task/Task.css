@@ -56,13 +56,21 @@
   text-align: center;
 }
 
+.correct_answer {
+  border: 4px solid #0aa41c !important;
+}
+
+.wrong_answer {
+  border: 4px solid #c10521 !important;
+}
+
 .task_answer button:hover {
   background: #03353e;
 }
 .task_answer input:focus {
   border: 4px solid #c1403d;
 }
-.task_answer p{
+.task_answer p {
   font-size: 24px;
   margin: 0;
 }

@@ -32,11 +32,11 @@ export default function TestingPage() {
         // получение формул
         if (activeTab === 'all') {
           const { data: tasks } = await agent.get<TestingTask[]>(`/test`);
-          setTasks(tasks);
+          setTasks(tasks.sort(() => Math.random() - 0.5));
         }
         else {
           const { data: tasks } = await agent.get<TestingTask[]>(`/test?classType=${activeTab}`);
-          setTasks(tasks);
+          setTasks(tasks.sort(() => Math.random() - 0.5));
         }
       }
       catch (err) {

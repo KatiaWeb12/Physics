@@ -38,7 +38,7 @@ export default function Task({ task, taskNumber }: Props) {
         {task.question}
       </p>
       <div className="task_answer">
-        <input type="text" readOnly={answerChecked.checked} placeholder="Ответ" value={userAnswer} onChange={onChangeUserAnswer} />
+        <input type="text" className={answerChecked.correct ? 'correct_answer' : 'wrong_answer'} readOnly={answerChecked.checked} placeholder="Ответ" value={userAnswer} onChange={onChangeUserAnswer} />
         {answerChecked.checked ? <p>Ответ: {task.correctAnswer}</p> : <button onClick={checkUserAnswer}>Проверить</button>}
       </div>
     </div>
