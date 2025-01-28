@@ -9,3 +9,11 @@
 .test_content {
   margin-top: 48px;
 }
+.reset_test_button {
+  background: #03353e;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
