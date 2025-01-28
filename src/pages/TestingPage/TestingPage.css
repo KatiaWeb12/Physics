@@ -11,9 +11,16 @@
 }
 .reset_test_button {
   background: #03353e;
-  padding: 5px;
+  padding: 8px;
   cursor: pointer;
   outline: none;
   font-family: "Roboto", sans-serif;
   color: white;
+  font-size: 25px;
+  margin-top: 45px;
+  border: none;
+}
+.reset_test_button:hover,
+.reset_test_button:focus {
+  background: #c1403d;
 }

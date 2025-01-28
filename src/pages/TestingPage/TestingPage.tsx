@@ -55,7 +55,7 @@ export default function TestingPage() {
       <div className="test_content">
         <Tabs activeTab={activeTab} setActiveTab={setActiveTabHandle} all={true} disabled={disabledTabs} />
         {Boolean(activeTab) && <TasksList tasks={tasks} />}
-        <button className="reset_test_button" onClick={resetTest}>Продолжить тестирование</button>
+        {Boolean(activeTab) && <button className="reset_test_button" onClick={resetTest}>Закончить тестирование</button>}
       </div>
     </ContentWrapper>
   )
