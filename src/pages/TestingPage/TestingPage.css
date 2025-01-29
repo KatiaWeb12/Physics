@@ -19,8 +19,14 @@
   font-size: 25px;
   margin-top: 45px;
   border: none;
+  margin-bottom: 50px;
 }
 .reset_test_button:hover,
 .reset_test_button:focus {
   background: #c1403d;
+}
+.test_content_header {
+  display: flex;
+  gap: 42px;
+  align-items: center;
 }

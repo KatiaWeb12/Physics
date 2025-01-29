@@ -1,0 +1,8 @@
+.timer p {
+  margin: 0;
+  font-size: 25px;
+}
+.timer {
+  flex-grow: 0;
+  margin-top: 32px;
+}
