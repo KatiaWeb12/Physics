@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import './Timer.css'
 
 //типизация пропсов
@@ -8,17 +8,18 @@ interface Props {
    setTimerLeft: (time: number) => void;
 }
 
-//функция преобразования времени
-function convertTime(time: number) {
-   let minutes = Math.floor(time / 60)
-   let seconds = Math.floor(time % 60)
-   return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-}
-
 //компонент таймера
-export default function Timer({ stopTimer, timerLeft, setTimerLeft }: Props) {
+export default function Timer({ stopTimer, timerLeft, setTimerLeft}: Props) {
    //кастомный хук
    const timerId = useRef<ReturnType<typeof setTimeout>>()
+
+   //функция преобразования времени
+   function convertTime(time: number) {
+      let minutes = Math.floor(time / 60)
+      let seconds = Math.floor(time % 60)
+      return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+   }
+
    useEffect(() => {
       //если тест не завершён
       if (!stopTimer) {
@@ -30,12 +31,12 @@ export default function Timer({ stopTimer, timerLeft, setTimerLeft }: Props) {
          //очищение таймера
          clearTimeout(timerId.current)
       }
-   }, [timerLeft, stopTimer])
+   }, [timerLeft, stopTimer, setTimerLeft])
 
    return (
       <div className="timer">
          <p>
-            Осталось: {convertTime(timerLeft)}
+            Время выполнения: {convertTime(timerLeft)}
          </p>
       </div>
    )

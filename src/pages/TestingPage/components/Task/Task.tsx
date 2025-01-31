@@ -2,13 +2,16 @@ import { TestingTask } from "@/types";
 import "./Task.css";
 import { ChangeEvent, useState } from "react";
 
+//типизация пропсов
 interface Props {
   task: TestingTask;
   taskNumber: number;
+  amountOfCorrectAnswers: number;
+  setAmountOfCorrectAnswers: (amountOfCorrectAnswers: number) => void;
 }
 
 //Тестовое задание
-export default function Task({ task, taskNumber }: Props) {
+export default function Task({ task, taskNumber, setAmountOfCorrectAnswers, amountOfCorrectAnswers }: Props) {
   //ответ пользователя
   const [userAnswer, setUserAnswer] = useState('')
   //состояние ответа пользователя
@@ -21,11 +24,21 @@ export default function Task({ task, taskNumber }: Props) {
   function onChangeUserAnswer(event: ChangeEvent<HTMLInputElement>) {
     setUserAnswer(event.target.value)
   }
+
+  //проверка ответа на правильность
+  function checkForCorrect() {
+    if (userAnswer === task.correctAnswer) {
+      setAmountOfCorrectAnswers(amountOfCorrectAnswers + 1)
+      return true
+    }
+    return false
+  }
+
   //функция при проверке ответа меняет состояние
   function checkUserAnswer() {
     setAnswerChecked({
       checked: true,
-      correct: userAnswer === task.correctAnswer
+      correct: checkForCorrect()
     });
   }
 
