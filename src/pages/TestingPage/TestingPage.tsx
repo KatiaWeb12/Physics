@@ -1,5 +1,5 @@
 import { ContentWrapper } from '@/components'
-import './TestingPage.css'
+import styles from './TestingPage.module.css'
 import { useEffect, useState } from 'react'
 import { TestingTask } from '@/types'
 import { agent } from '@/api'
@@ -77,9 +77,9 @@ export default function TestingPage() {
   }, [activeTab]);
   return (
     <ContentWrapper>
-      <h2 className='test_title'>Выберите раздел для тестирования</h2>
-      <div className="test_content">
-        <div className="test_content_header">
+      <h2 className={styles.test_title}>Выберите раздел для тестирования</h2>
+      <div className={styles.test_content}>
+        <div className={styles.test_content_header}>
           <Tabs activeTab={activeTab} setActiveTab={setActiveTabHandle} all={true} disabled={disabledTabs} />
           {Boolean(activeTab) && <Timer stopTimer={testIsOver} timerLeft={timerLeft} setTimerLeft={setTimerLeft} />}
         </div>
@@ -90,7 +90,7 @@ export default function TestingPage() {
             amountOfCorrectAnswers={amountOfCorrectAnswers}
           />
         )}
-        {Boolean(activeTab) && <button className="reset_test_button" onClick={finishTest}>Закончить тестирование</button>}
+        {Boolean(activeTab) && <button className={styles.reset_test_button} onClick={finishTest}>Закончить тестирование</button>}
         {Boolean(testIsOver) && (
           <TestModalWindow
             tasksAmount={TASKS_AMOUNT}
