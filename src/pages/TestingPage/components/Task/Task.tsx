@@ -50,8 +50,9 @@ export default function Task({ task, taskNumber, setAmountOfCorrectAnswers, amou
       <p className="task_text">
         {task.question}
       </p>
+      {Boolean(task.testImage) && <img src={task.testImage} alt='not found'></img>}
       <div className="task_answer">
-        <input type="text" className={answerChecked.correct ? 'correct_answer' : 'wrong_answer'} readOnly={answerChecked.checked} placeholder="Ответ" value={userAnswer} onChange={onChangeUserAnswer} />
+        <input type="text" className={answerChecked.checked && answerChecked.correct ? 'correct_answer' : answerChecked.checked ? 'wrong_answer' : ''} readOnly={answerChecked.checked} placeholder="Ответ" value={userAnswer} onChange={onChangeUserAnswer} />
         {answerChecked.checked ? <p>Ответ: {task.correctAnswer}</p> : <button onClick={checkUserAnswer}>Проверить</button>}
       </div>
     </div>

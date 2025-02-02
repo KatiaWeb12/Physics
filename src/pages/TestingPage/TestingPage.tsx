@@ -7,8 +7,9 @@ import { Tabs } from '@/components'
 import TasksList from './components/TasksList/TasksList'
 import Timer from './components/Timer/Timer'
 import TestModalWindow from './components/TestModalWindow/TestModalWindow'
+import { convertTime } from '@/utils'
 
-const TASKS_AMOUNT = 12
+const TASKS_AMOUNT = 10
 
 // Страница: тестирование
 export default function TestingPage() {
@@ -35,6 +36,11 @@ export default function TestingPage() {
     setTestIsOver(true)
   }
 
+  // продолжение теста
+  function continueTest() {
+    setTestIsOver(false)
+  }
+
   // сброс тестовых вопросов
   function resetTest() {
     setDisabledTabs(false)
@@ -45,12 +51,6 @@ export default function TestingPage() {
     setAmountOfCorrectAnswers(0)
   }
 
-  //функция преобразования времени
-  function convertTime(time: number) {
-    let minutes = Math.floor(time / 60)
-    let seconds = Math.floor(time % 60)
-    return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-  }
 
   useEffect(() => {
     async function getData() {
@@ -83,9 +83,23 @@ export default function TestingPage() {
           <Tabs activeTab={activeTab} setActiveTab={setActiveTabHandle} all={true} disabled={disabledTabs} />
           {Boolean(activeTab) && <Timer stopTimer={testIsOver} timerLeft={timerLeft} setTimerLeft={setTimerLeft} />}
         </div>
-        {Boolean(activeTab) && <TasksList tasks={tasks} setAmountOfCorrectAnswers={setAmountOfCorrectAnswers} amountOfCorrectAnswers={amountOfCorrectAnswers}/>}
+        {Boolean(activeTab) && (
+          <TasksList
+            tasks={tasks}
+            setAmountOfCorrectAnswers={setAmountOfCorrectAnswers}
+            amountOfCorrectAnswers={amountOfCorrectAnswers}
+          />
+        )}
         {Boolean(activeTab) && <button className="reset_test_button" onClick={finishTest}>Закончить тестирование</button>}
-        {Boolean(testIsOver) && <TestModalWindow tasksAmount={TASKS_AMOUNT} result={amountOfCorrectAnswers} time={convertTime(timerLeft)} resetTest={resetTest} setTestIsOver={setTestIsOver} />}
+        {Boolean(testIsOver) && (
+          <TestModalWindow
+            tasksAmount={TASKS_AMOUNT}
+            result={amountOfCorrectAnswers}
+            time={convertTime(timerLeft)}
+            resetTest={resetTest}
+            continueTest={continueTest}
+          />
+        )}
       </div>
     </ContentWrapper>
   )
