@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import styles from "../../pages/ClassPage/ClassPage.module.css";
 
 interface Props {
    setActiveClass: (activeId: string) => void;
@@ -9,7 +9,7 @@ interface Props {
 export default function ClassItem({ activeClass, setActiveClass, nameOfClass, typeOfClass }: Props) {
    return (
       <div
-         className={classNames('topic_cont_class', { "active_theme": typeOfClass === activeClass })}
+         className={typeOfClass === activeClass ? styles.active_theme : styles.topic_cont_class}
          onClick={() => setActiveClass(typeOfClass)}
       >
          {nameOfClass}

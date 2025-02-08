@@ -6,6 +6,7 @@ import { agent } from "@/api";
 import ClassThemesList from "../ClassPage/components/ClassThemesList";
 import RepeatingSlider from "./components/RepeatingSlider/RepeatingSlider";
 import Tabs from "@/components/Tabs/Tabs";
+import Statistics from "./components/Statistics/Statistics"
 
 // Страница: повторение формул по карточкам
 export default function RepeatingPage() {
@@ -58,6 +59,7 @@ export default function RepeatingPage() {
           themes={themes}
         />
       )}
+      {Boolean(activeThemeId) && <Statistics />}
       {Boolean(activeClass) && Boolean(activeThemeId) && <RepeatingSlider formulas={formulas} />}
     </ContentWrapper>
   );

@@ -19,7 +19,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 8px;
-  width: 48%;
+  width: 50%;
   height: auto;
   margin: 0 auto;
 }
@@ -66,10 +66,10 @@
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  gap: 30px;
 }
 .formula_info img {
-  width: 300px;
-  height: 120px;
+  height: 150px;
   border: 3px solid #0294a5;
 }
 .physical_quantities {
@@ -94,7 +94,9 @@
   margin-top: 50px;
 }
 .physical_devices {
-  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 .modal_text_cont {
   background: #0294a5;
@@ -111,6 +113,7 @@
 .physical_devices {
   display: flex;
   gap: 35px;
+  align-items: center;
 }
 .modal_button {
   background: #c1403d;
@@ -128,6 +131,14 @@
   background: #03353e;
   color: #ebf2ea;
 }
-.topic_cont_theme{
+.topic_cont_theme {
   margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c1403d;
+  padding: 4px 10px;
+}
+.text_description{
+  margin-top: 20px;
 }

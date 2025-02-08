@@ -1,6 +1,7 @@
 import { TestingTask } from "@/types";
 import "./Task.css";
 import { ChangeEvent, useState } from "react";
+import ImageWithFullScreen from "../ImageWithFullScreen/ImageWithFullScreen";
 
 //типизация пропсов
 interface Props {
@@ -47,10 +48,10 @@ export default function Task({ task, taskNumber, setAmountOfCorrectAnswers, amou
       <div className="task_title">
         <p>Задание №{taskNumber}</p>
       </div>
+      {task.testImage && <ImageWithFullScreen src={task.testImage} />}
       <p className="task_text">
         {task.question}
       </p>
-      {Boolean(task.testImage) && <img src={task.testImage} alt='not found'></img>}
       <div className="task_answer">
         <input type="text" className={answerChecked.checked && answerChecked.correct ? 'correct_answer' : answerChecked.checked ? 'wrong_answer' : ''} readOnly={answerChecked.checked} placeholder="Ответ" value={userAnswer} onChange={onChangeUserAnswer} />
         {answerChecked.checked ? <p>Ответ: {task.correctAnswer}</p> : <button onClick={checkUserAnswer}>Проверить</button>}

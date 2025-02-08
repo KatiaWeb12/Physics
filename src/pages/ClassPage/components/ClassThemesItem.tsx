@@ -1,5 +1,4 @@
-import classNames from "classnames";
-import "../ClassPage.css";
+import styles from "../ClassPage.module.css";
 
 //типизация пропса -> {тема, ссылка}
 interface Props {
@@ -13,7 +12,7 @@ interface Props {
 export default function ClassThemesItem({ themeName, themeId, onClickHandle, activeThemeId }: Props) {
   return (
     <div
-      className={classNames('topic_cont_class', { "active_theme": themeId === activeThemeId })}
+      className={themeId === activeThemeId ? styles.active_theme : styles.topic_cont_class}
       onClick={() => onClickHandle(themeId)}>
       {themeName}
     </div>

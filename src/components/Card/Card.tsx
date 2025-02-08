@@ -1,5 +1,5 @@
 import { Formula } from "@/types";
-import "./Card.css";
+import styles from "./Card.module.css"
 import { useState } from "react";
 import ModalWindow from "../ModalWindow/ModalWindow";
 
@@ -17,18 +17,18 @@ export default function Card({ formulaInfo }: Props) {
   }
   return (
     <>
-      <div className="card">
+      <div className={styles.card}>
         <img src={formulaInfo.image} alt="formula_img" />
-        <div className="card_info">
-          <div className="topic_cont">
-            <h6 className="topic">{formulaInfo.title}</h6>
+        <div className={styles.card_info}>
+          <div className={styles.topic_cont}>
+            <h6 className={styles.topic}>{formulaInfo.title}</h6>
           </div>
-          <p>
+          <p className={styles.descp}>
             {formulaInfo.description}
           </p>
         </div>
-        <div className="learn_more">
-          <button className="button" onClick={setIsLearnMoreHendler}>Изучить</button>
+        <div className={styles.learn_more}>
+          <button className={styles.button} onClick={setIsLearnMoreHendler}>Изучить</button>
         </div>
       </div>
       {isLearnMore && <ModalWindow setIsLearnMoreHendler={setIsLearnMoreHendler} formulaInfo={formulaInfo} />}

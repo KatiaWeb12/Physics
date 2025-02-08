@@ -1,5 +1,5 @@
 import { Formula } from "@/types";
-import "./CardList.css";
+import styles from "./CardList.module.css"
 import Card from "../Card/Card";
 import CardSkeleton from "../Card/CardSkeleton";
 
@@ -10,7 +10,7 @@ interface Props {
 
 export default function CardList({ formulas, isLoading }: Props) {
   return (
-    <div className="card_list">
+    <div className={styles.card_list}>
       {
         formulas.map(formula => <Card key={formula.id} formulaInfo={formula} />)
       }

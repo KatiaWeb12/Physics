@@ -6,7 +6,7 @@ import { ClassesListNames } from "@/constants";
 import { agent } from "@/api";
 import ClassThemesList from "./components/ClassThemesList";
 import FormulaList from "./components/FormulaList";
-import "./ClassPage.css";
+import styles from "./ClassPage.module.css"
 
 //типизация пропса -> тип класса
 interface Props {
@@ -52,7 +52,7 @@ export default function ClassPage({ classType }: Props) {
   }
   return (
     <ContentWrapper>
-      <h4 className="class_header">{ClassesListNames[classType]}</h4>
+      <h4 className={styles.class_header}>{ClassesListNames[classType]}</h4>
       <ClassThemesList themes={themes} setActiveThemeId={setActiveThemeIdHandle} activeThemeId={activeThemeId} />
       {
         Boolean(activeThemeId) && <FormulaList themeId={activeThemeId} />

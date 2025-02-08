@@ -1,13 +1,16 @@
+import styles from "./Card.module.css"
+
+//Скелетон карточки с формулой
 export default function CardSkeleton() {
   return (
-    <div className="card_skeleton">
-      <div className="image_skeleton" />
-      <div className="card_info_skeleton">
-        <div className="topic_cont_skeleton" />
-        <div className="cont_skeleton" />
+    <div className={styles.card_skeleton}>
+      <div className={styles.image_skeleton} />
+      <div className={styles.card_info_skeleton}>
+        <div className={styles.topic_cont_skeleton} />
+        <div className={styles.cont_skeleton} />
       </div>
-      <div className="learn_more">
-        <div className="button_skeleton" />
+      <div className={styles.learn_more}>
+        <div className={styles.button_skeleton} />
       </div>
     </div>
   )

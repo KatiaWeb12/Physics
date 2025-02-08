@@ -15,11 +15,11 @@ const TASKS_AMOUNT = 10
 export default function TestingPage() {
   //задания
   const [tasks, setTasks] = useState<TestingTask[]>([])
-  // активный класс
+  //активный класс
   const [activeTab, setActiveTab] = useState<string>();
-  // disabled
+  //disabled
   const [disabledTabs, setDisabledTabs] = useState<boolean>(false);
-  // окончен ли тест
+  //окончен ли тест
   const [testIsOver, setTestIsOver] = useState(false)
   //пройденное время
   const [timerLeft, setTimerLeft] = useState(0)
@@ -57,7 +57,7 @@ export default function TestingPage() {
       try {
         // получение формул
         if (activeTab === 'all') {
-          const { data: tasks } = await agent.get<TestingTask[]>(`/test?limit=${TASKS_AMOUNT}`);
+          const { data: tasks } = await agent.get<TestingTask[]>(`/test?_limit=${TASKS_AMOUNT}`);
           setTasks(tasks.sort(() => Math.random() - 0.5));
         }
         else {

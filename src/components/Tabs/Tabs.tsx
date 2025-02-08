@@ -1,7 +1,6 @@
 import { ClassesListNames, TabListNames } from '@/constants';
 import ClassItem from '../ClassItem/ClassItem';
-import classNames from 'classnames';
-import "./Tabs.css"
+import styles from "./Tabs.module.css"
 
 interface Props {
    setActiveTab: (activeId: string) => void;
@@ -12,7 +11,7 @@ interface Props {
 export default function Tabs({ activeTab, setActiveTab, all, disabled }: Props) {
    let tabs = all ? TabListNames : ClassesListNames
    return (
-      <div className={classNames('tabs', { "disabled_tabs": disabled })}>
+      <div className={disabled ? styles.disabled_tabs : styles.tabs}>
          {
             (Object.keys(tabs).map(key => (
                <ClassItem

@@ -1,6 +1,7 @@
 .repeating {
   margin: 96px auto 0;
   width: 70%;
+  position: relative;
 }
 .carousel_wrapper{
   position: relative;

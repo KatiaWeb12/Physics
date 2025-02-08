@@ -2,6 +2,7 @@ import "./TasksList.css";
 import Task from "../Task/Task";
 import { TestingTask } from '@/types'
 
+// типизация пропсов
 interface Props {
   tasks: TestingTask[];
   amountOfCorrectAnswers: number;

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import "./Header.css";
+import styles from "./Header.module.css"
 import { ROOT_ROUTES } from "../../constants";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 
@@ -38,19 +38,19 @@ const headerBlocksArray = [[links[0]], links.slice(1, 4), links.slice(4, 6)];
 export default function Header() {
   const { pathname } = useLocation();
   return (
-    <header className="header">
+    <header className={styles.header}>
       <ContentWrapper>
-        <nav className="header_cont">
+        <nav className={styles.header_cont}>
           {
             headerBlocksArray.map((el, index) => (
-              <div className="header_block" key={index}>
+              <div className={styles.header_block} key={index}>
                 {
                   el.map((linksItem) => (
                     <Link
                       key={linksItem.route}
                       to={linksItem.route}
                       className={
-                        pathname === linksItem.route ? "active_link menu_cont" : "menu_cont"
+                        pathname === linksItem.route ? styles.active_link : styles.menu_cont
                       }
                     >
                       {linksItem.title}

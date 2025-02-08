@@ -35,6 +35,7 @@
   line-clamp: 4;
   -webkit-box-orient: vertical;
   align-items: start;
+  margin-top: 15px;
 }
 .learn_more {
   margin-top: auto;

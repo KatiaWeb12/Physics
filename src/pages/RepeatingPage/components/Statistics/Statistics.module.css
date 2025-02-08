@@ -1,0 +1,16 @@
+.statistics{
+   background: #03353e;
+   color: white;
+   position: absolute;
+   top: 350px;
+   right: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px;
+   font-size: 25px;
+   cursor: pointer;
+}
+.statistics:hover, .statistics:focus{
+   background: #c1403d;
+}

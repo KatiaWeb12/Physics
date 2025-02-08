@@ -1,4 +1,4 @@
-import "./ModalWindow.css";
+import styles from "./ModalWindow.module.css"
 import { useAppSelector } from "@/redux";
 import Close from "@/static/close.png";
 import type { Formula } from "@/types";
@@ -23,26 +23,26 @@ export default function ModalWindow(
     } }: Props) {
   const theme = useAppSelector(state => state.class.themes.find(el => el.themeId === themeId));
   return (
-    <div className="modalCont">
-      <div className="modalWindow">
-        <div className="closeWindow" onClick={setIsLearnMoreHendler}>
+    <div className={styles.modalCont}>
+      <div className={styles.modalWindow}>
+        <div className={styles.closeWindow} onClick={setIsLearnMoreHendler}>
           <img src={Close} alt="close_modal" />
         </div>
-        <div className="modalInfo">
-          <div className="topic_cont_theme topic_cont">
-            <h4 className="topic">{theme?.themeName}</h4>
+        <div className={styles.modalInfo}>
+          <div className={styles.topic_cont_theme}>
+            <h4 className={styles.topic}>{theme?.themeName}</h4>
           </div>
-          <div className="topic_cont">
-            <h2 className="topic">{title}</h2>
+          <div className={styles.topic_cont}>
+            <h2 className={styles.topic}>{title}</h2>
           </div>
-          <div className="formula_info">
+          <div className={styles.formula_info}>
             <img src={image} alt="formula_img" />
-            <div className="physical_quantities">
+            <div className={styles.physical_quantities}>
               {
                 //перебор физических величин по ключу
                 Object.keys(physical_quantities).map(key => {
                   return (
-                    <div className="quantity" key={key}>
+                    <div className={styles.quantity} key={key}>
                       <p>{key} - {physical_quantities[key]}</p>
                     </div>
                   )
@@ -50,26 +50,26 @@ export default function ModalWindow(
               }
             </div>
           </div>
-          <div className="formula_description">
-            <div className="modal_text_cont">
+          <div className={styles.formula_description}>
+            <div className={styles.modal_text_cont}>
               <h4>Описание формулы</h4>
             </div>
-            <p className="text_description">
+            <p className={styles.text_description}>
               {description}
             </p>
           </div>
           {
             physical_devices && (
-              <div className="physical_devices">
-                <div className="modal_text_cont">
+              <div className={styles.physical_devices}>
+                <div className={styles.modal_text_cont}>
                   <h4>Физические приборы</h4>
                 </div>
-                <p className="text_physical_devices">{physical_devices}</p>
+                <p className={styles.text_physical_devices}>{physical_devices}</p>
               </div>
             )
           }
         </div>
       </div>
-    </div>
+    </div >
   );
 }

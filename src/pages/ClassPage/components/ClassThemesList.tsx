@@ -1,6 +1,6 @@
 import ClassThemesItem from "./ClassThemesItem";
 import type { Theme } from "@/types";
-import "../ClassPage.css";
+import styles from "../ClassPage.module.css";
 
 // типизация пропса -> список тем
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 // компонент списка тем
 export default function ClassThemesList({ themes, setActiveThemeId, activeThemeId }: Props) {
   return (
-    <div className="class_topics">
+    <div className={styles.class_topics}>
       {themes.map(theme => <ClassThemesItem
         onClickHandle={setActiveThemeId}
         activeThemeId={activeThemeId}
