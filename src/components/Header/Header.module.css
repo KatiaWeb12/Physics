@@ -12,10 +12,10 @@
   display: flex;
   gap: 38px;
 }
-.menu_cont{
+.menu_cont {
   transition: background 0.2s;
   color: #ebf2ea;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   margin: 0;
   text-decoration: none;
@@ -23,10 +23,11 @@
   border-radius: 2px;
   margin: 0;
 }
-.menu_cont:hover, .active_link {
+.menu_cont:hover,
+.active_link {
   transition: background 0.2s;
   color: #ebf2ea;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   margin: 0;
   text-decoration: none;
@@ -35,4 +36,3 @@
   margin: 0;
   background: #c1403d;
 }
-

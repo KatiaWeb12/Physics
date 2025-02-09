@@ -1,16 +1,24 @@
-.statistics{
-   background: #03353e;
-   color: white;
-   position: absolute;
-   top: 350px;
-   right: 60px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding: 10px;
-   font-size: 25px;
-   cursor: pointer;
+.statistics {
+  display: flex;
+  flex-direction: column;
 }
-.statistics:hover, .statistics:focus{
-   background: #c1403d;
+.statistics h5{
+  background: #03353e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 10px;
+  font-size: 28px;
+  margin: 32px auto;
+}
+.statistics ul{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+.statistics li{
+  font-size: 24px;
 }

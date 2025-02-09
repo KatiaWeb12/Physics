@@ -18,6 +18,7 @@ export default function RepeatingPage() {
   const [activeThemeId, setActiveThemeId] = useState<number>(0);
   // формулы
   const formulas = useAppSelector((state) => state.class.formulas.filter(formula => formula.themeId === Number(activeThemeId))).sort(() => Math.random() - 0.5)
+  const [formulasForReating, setFormulasForReating] = useState<string[]>([])
   const dispatch = useAppDispatch()
   // функция изменения класса
   function setActiveClassHandle(newValue: string) {
@@ -59,8 +60,8 @@ export default function RepeatingPage() {
           themes={themes}
         />
       )}
-      {Boolean(activeThemeId) && <Statistics />}
-      {Boolean(activeClass) && Boolean(activeThemeId) && <RepeatingSlider formulas={formulas} />}
+      {Boolean(activeClass) && Boolean(activeThemeId) && <RepeatingSlider formulas={formulas} setFormulasForReating={setFormulasForReating} />}
+      {Boolean(activeThemeId) && Boolean(formulasForReating.length) && <Statistics list={formulasForReating} />}
     </ContentWrapper>
   );
 }

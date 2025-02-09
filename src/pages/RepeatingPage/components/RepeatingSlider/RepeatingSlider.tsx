@@ -7,9 +7,10 @@ import RepeatingSlide from "../RepeatingSlide";
 import './RepeatingSlider.css'
 interface Props {
    formulas: Formula[];
+   setFormulasForReating: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export default function RepeatingSlider({ formulas }: Props) {
+export default function RepeatingSlider({ formulas, setFormulasForReating }: Props) {
    return (
       <div className="repeating">
          <Carousel
@@ -20,7 +21,7 @@ export default function RepeatingSlider({ formulas }: Props) {
             renderArrowNext={(clickHandler: () => void, hasNext: boolean) => hasNext ? <img onClick={clickHandler} className="slider_button slider_next_button" src={Right} alt="next-button" /> : undefined}
          >
             {formulas.map((formula) =>
-               <RepeatingSlide formula={formula} key={formula.id} />
+               <RepeatingSlide formula={formula} key={formula.id} setFormulasForReating={setFormulasForReating} />
             )}
          </Carousel>
       </div>
