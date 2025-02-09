@@ -16,19 +16,17 @@ export default function ImageWithFullScreen({ src }: Props) {
   }
   //Закрытие картинки
   function closeFullScreen(event) {
-    if (!(event.target.closest === 'ImageWithFullScreen_image_modal__iFqO0')) {
+    if (!("clickFullScreen" in event.target.dataset)) {
       setIsFullScreen(false)
-      console.log()
     }
-
   }
   return (
     <div>
       <img onClick={openFullScreen} className={styles.task_image} src={src} alt='task_img' />
       {isFullScreen && (
         <div className={styles.image_modal} onClick={closeFullScreen}>
-          <div className={styles.modal_cont}>
-            <img src={src} alt='task_img' className={styles.full_screen_image} />
+          <div className={styles.modal_cont} data-click-full-screen=''>
+            <img src={src} alt='task_img' className={styles.full_screen_image} data-click-full-screen='' />
           </div>
         </div>
       )}
