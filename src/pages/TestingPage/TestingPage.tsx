@@ -1,13 +1,13 @@
-import { ContentWrapper } from '@/components'
-import styles from './TestingPage.module.css'
 import { useEffect, useState } from 'react'
+import { convertTime } from '@/utils'
+import { ContentWrapper } from '@/components'
 import { TestingTask } from '@/types'
 import { agent } from '@/api'
 import { Tabs } from '@/components'
-import TasksList from './components/TasksList/TasksList'
+import styles from './TestingPage.module.css'
+import TasksList from './components/tasksList/TasksList'
 import Timer from './components/Timer/Timer'
 import TestModalWindow from './components/TestModalWindow/TestModalWindow'
-import { convertTime } from '@/utils'
 
 const TASKS_AMOUNT = 10
 

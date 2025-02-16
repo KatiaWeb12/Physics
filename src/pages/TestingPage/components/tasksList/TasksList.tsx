@@ -1,4 +1,4 @@
-import "./TasksList.css";
+import "./tasksList.css";
 import Task from "../Task/Task";
 import { TestingTask } from '@/types'
 
