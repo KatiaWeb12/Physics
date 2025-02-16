@@ -54,7 +54,7 @@ export default function MainPage() {
     return () => {
       dispatch(classActions.resetData());
     }
-  }, [])
+  }, [dispatch])
   //если ошибка
   if (isError) {
     return (
