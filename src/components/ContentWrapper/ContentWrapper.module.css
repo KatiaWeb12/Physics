@@ -1,0 +1,9 @@
+*{
+  margin: 0; 
+}
+
+.content_wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 95%;
+}

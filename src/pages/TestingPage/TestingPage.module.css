@@ -1,0 +1,32 @@
+.test_title {
+  display: inline;
+  padding: 13px 18px;
+  background: #c1403d;
+  font-size: 30px;
+  color: white;
+  margin: 0;
+}
+.test_content {
+  margin-top: 48px;
+}
+.reset_test_button {
+  background: #03353e;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 25px;
+  margin-top: 45px;
+  border: none;
+  margin-bottom: 50px;
+}
+.reset_test_button:hover,
+.reset_test_button:focus {
+  background: #c1403d;
+}
+.test_content_header {
+  display: flex;
+  gap: 42px;
+  align-items: center;
+}

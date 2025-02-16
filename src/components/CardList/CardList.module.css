@@ -1,0 +1,10 @@
+.card_list {
+   display: flex;
+   flex-wrap: wrap;
+   flex-grow: 1;
+   align-content: flex-start;
+   align-items: stretch;
+   gap: 66px;
+   margin: 30px auto 0;
+   padding-bottom: 32px;
+ }

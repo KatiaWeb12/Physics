@@ -1,0 +1,17 @@
+.tabs {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.disabled_tabs {
+  opacity: 0.5;
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+  /* disabled */
+  pointer-events: none;
+}
