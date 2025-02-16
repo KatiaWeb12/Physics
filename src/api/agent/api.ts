@@ -1,6 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
 //хранение базовой ссылки
 export const agent = axios.create({
-   baseURL: 'http://localhost:3001'
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://physics-server-jade.vercel.app"
+      : "http://localhost:3001",
 });
