@@ -50,3 +50,12 @@
     color: #ffffff;
   }
 }
+@media screen and (max-width: 500px) {
+  .topic_cont_class {
+    font-size: 22px;
+  }
+  .active_theme,
+  .topic_cont_class:hover {
+    font-size: 22px;
+  }
+}

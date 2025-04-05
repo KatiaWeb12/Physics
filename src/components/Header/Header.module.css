@@ -81,11 +81,11 @@
   margin-bottom: 48px;
   padding-top: 10px;
   padding-bottom: 10px;
-}
+  }
   .menu_cont {
     transition: 0.2s;
     color: #ebf2ea;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
     margin: 0;
     text-decoration: none;
@@ -97,7 +97,7 @@
   .active_link {
     transition: 0.2s;
     color: #ebf2ea;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
     margin: 0;
     text-decoration: none;
