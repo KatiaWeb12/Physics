@@ -11,19 +11,19 @@ import TestModalWindow from './components/TestModalWindow/TestModalWindow'
 
 const TASKS_AMOUNT = 10
 
-// Страница: тестирование
+//Страница тестирования
 export default function TestingPage() {
-  //задания
+  //Задания
   const [tasks, setTasks] = useState<TestingTask[]>([])
-  //активный класс
+  //Активный класс
   const [activeTab, setActiveTab] = useState<string>();
-  //disabled
+  //Disabled
   const [disabledTabs, setDisabledTabs] = useState<boolean>(false);
-  //окончен ли тест
+  //Окончен ли тест
   const [testIsOver, setTestIsOver] = useState(false)
-  //пройденное время
+  //Пройденное время
   const [timerLeft, setTimerLeft] = useState(0)
-  //количество верных ответов
+  //Количество верных ответов
   const [amountOfCorrectAnswers, setAmountOfCorrectAnswers] = useState(0)
 
   // функция изменения класса

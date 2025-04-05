@@ -5,7 +5,8 @@
 .class_topics {
   display: flex;
   gap: 32px;
-  margin-top: 32px; 
+  margin-top: 32px;
+  flex-wrap: wrap;
 }
 .topic_cont_class {
   padding: 10px;
@@ -26,4 +27,26 @@
   color: #ffffff;
   background: #17adbe;
   color: #ffffff;
+}
+@media screen and (max-width: 900px) {
+  .topic_cont_class {
+    padding: 10px;
+    background: #03353e;
+    transition: 0.2s;
+    font-size: 28px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .active_theme,
+  .topic_cont_class:hover {
+    padding: 10px;
+    transition: 0.2s;
+    font-size: 28px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    background: #17adbe;
+    color: #ffffff;
+  }
 }

@@ -23,3 +23,26 @@
 .slider_next_button {
   right:0
 }
+
+
+@media screen and (max-width: 1136px){
+  .repeating {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 750px){
+  .repeating {
+    width: 100%; 
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 500px){
+  .repeating {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+}

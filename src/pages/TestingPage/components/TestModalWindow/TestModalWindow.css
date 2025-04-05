@@ -42,11 +42,48 @@
   font-size: 22px;
   border: none;
   padding: 8px 18px;
-  line-height: 24px;
+  font-size: 22px;
   font-family: "Roboto", sans-serif;
   transition: 0.2s;
 }
 .test_modal_buttons button:hover {
   background: #03353e;
   color: #ebf2ea;
+}
+
+@media screen and (max-width: 1136px) {
+  .test_modal_info h5 {
+    font-size: 36px;
+  }
+  .test_modal_info p {
+    font-size: 32px;
+  }
+  .test_modal_buttons button {
+    padding: 10px 20px;
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .test_modal_info h5 {
+    font-size: 36px;
+  }
+  .test_modal_info p {
+    font-size: 32px;
+  }
+  .test_modal_buttons button {
+    padding: 10px 20px;
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .test_modal_info h5 {
+    font-size: 36px;
+  }
+  .test_modal_info p {
+    font-size: 32px;
+  }
+  .test_modal_buttons button {
+    padding: 10px 20px;
+    font-size: 26px;
+  }
 }

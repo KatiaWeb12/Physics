@@ -51,7 +51,7 @@
   padding: 4px 12px;
   line-height: 24px;
   font-family: "Roboto", sans-serif;
-  transition: background 0.2s;
+  transition: 0.2s;
 }
 .button:hover {
   background: #03353e;
@@ -92,4 +92,44 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   height: 40px;
   width: 100px;
+}
+@media screen and (max-width: 1136px){
+  .card, .card_skeleton {
+    width: calc((100% - 66px) / 2);
+  }
+}
+@media screen and (max-width: 900px){
+  .card_info p {
+    font-size: 22px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    align-items: start;
+    margin-top: 15px;
+  }
+  .button {
+    background: #c1403d;
+    outline: none;
+    cursor: pointer;
+    color: #ebf2ea;
+    font-size: 24px;
+    border: none;
+    padding: 4px 12px;
+    line-height: 24px;
+    font-family: "Roboto", sans-serif;
+    transition: 0.2s;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .card, .card_skeleton {
+    width: calc(100% / 2 - 36px);
+  }
+}
+@media screen and (max-width: 500px){
+  .card, .card_skeleton {
+    width: 100%;
+  }
 }

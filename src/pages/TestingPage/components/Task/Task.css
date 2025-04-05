@@ -74,3 +74,88 @@
   font-size: 24px;
   margin: 0;
 }
+
+@media screen and (max-width: 1136px) {
+  .task {
+    gap: 18px;
+  }
+  .task_title {
+    width: 170px;
+    height: 50px;
+  }
+  .task_title p {
+    font-size: 24px;
+  }
+  .task_text {
+    font-size: 24px;
+  }
+  .task_answer input {
+    width: 170px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .task_answer button {
+    width: 170px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .task_answer p {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .task {
+    gap: 18px;
+  }
+  .task_title {
+    width: 170px;
+    height: 50px;
+  }
+  .task_title p {
+    font-size: 24px;
+  }
+  .task_text {
+    font-size: 24px;
+  }
+  .task_answer input {
+    width: 170px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .task_answer button {
+    width: 170px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .task_answer p {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .task {
+    gap: 18px;
+  }
+  .task_title {
+    width: 170px;
+    height: 50px;
+  }
+  .task_title p {
+    font-size: 24px;
+  }
+  .task_text {
+    font-size: 24px;
+  }
+  .task_answer input {
+    width: 170px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .task_answer button {
+    width: 170px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .task_answer p {
+    font-size: 26px;
+  }
+}

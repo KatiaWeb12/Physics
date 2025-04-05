@@ -9,19 +9,19 @@ interface Props {
    setTimerLeft: (time: number) => void;
 }
 
-//компонент таймера
+//Компонент таймера
 export default function Timer({ stopTimer, timerLeft, setTimerLeft }: Props) {
-   //кастомный хук
    const timerId = useRef<ReturnType<typeof setTimeout>>()
    useEffect(() => {
-      //если тест не завершён
+      //Если тест не завершён
       if (!stopTimer) {
+         //Увеличение времени на 1 секунду
          timerId.current = setTimeout(() => {
             setTimerLeft(timerLeft + 1)
          }, 1000)
       }
       return () => {
-         //очищение таймера
+         //Очищение таймера
          clearTimeout(timerId.current)
       }
    }, [timerLeft, stopTimer, setTimerLeft])

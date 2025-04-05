@@ -8,9 +8,9 @@ interface Props {
    setFormulasForReating?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 export default function RepeatingCard({ formula: { title, image }, slideType, onFlippHendle, setFormulasForReating }: Props) {
-   function addFormulasForReating(){
+   function addFormulasForReating() {
       setFormulasForReating?.(prev => {
-         if(prev.find(el => el === title)){
+         if (prev.find(el => el === title)) {
             return prev
          }
          return [...prev, title]
@@ -20,9 +20,9 @@ export default function RepeatingCard({ formula: { title, image }, slideType, on
       slideType === 'question' ? (
          <div onClick={onFlippHendle} className={styles.rep_card}>
             <div className={styles.rounds}>
-               <div className={styles.rounds}></div>
-               <div className="round main_round"></div>
-               <div className={styles.rounds}></div>
+               <div className={styles.round}></div>
+               <div className={styles.main_round}></div>
+               <div className={styles.round}></div>
             </div>
             <p className={styles.formula_text}>{title}</p>
             <div className={styles.rep_card_button}>

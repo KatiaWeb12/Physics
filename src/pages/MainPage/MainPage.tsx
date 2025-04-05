@@ -18,26 +18,28 @@ export default function MainPage() {
   const [offset, setOffset] = useState(0)
   //переменная показывает: создан ли последний элемент из базы
   const [isLast, setIsLast] = useState(false);
-  //кастомный хук, который позволяет управлять состоянием данных с сервера (ошибка, загрузка)
+
+  //Кастомный хук, который позволяет управлять состоянием данных с сервера (ошибка, загрузка)
   const { isFetching, isError } = useQuery(() => new Promise((resolve) => {
-    //промис для выполнения асинхронной операции с искуственной задержкой
+    //Промис для выполнения асинхронной операции с искуственной задержкой
     setTimeout(() => {
-      //отправка запроса
+      //Отправка запроса для получения всех формул
       resolve(agent.get(`/all_formulas?_start=${offset}&_limit=${REQEST_LIMIT}`).then(({ data }: AxiosResponse<Formula[]>) => {
         return data
       }))
     }, 1000)
   }), {
-    keys: [offset], //зависимость от offset
+    keys: [offset], //Зависимость от offset
     onSuccess: (formulasList: Formula[]) => {
-      setFormulasList(prev => prev.concat(formulasList)) //изменение списка формул в случае успеха
+      //Изменение списка формул в случае успеха
+      setFormulasList(prev => prev.concat(formulasList))
       if (formulasList.length < REQEST_LIMIT) {
         setIsLast(true);
       }
     }
   });
 
-  //кастомный хук, который позволяет следить за областью видимости
+  //Кастомный хук, который позволяет следить за областью видимости
   const { ref } = useIntersectionObserver<HTMLDivElement>({ //ref - привязка к html-элементу
     threshold: 1, //объект виден полностью
     onChange: (entry) => {
