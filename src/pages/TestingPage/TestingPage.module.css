@@ -6,6 +6,10 @@
   color: white;
   margin: 0;
 }
+.click_note {
+  font-size: 24px;
+  margin-top: 20px;
+}
 .test_content {
   margin-top: 48px;
 }
@@ -31,21 +35,69 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1136px){
+@media screen and (max-width: 1136px) {
   .reset_test_button {
     font-size: 28px;
     padding: 10px;
   }
 }
-@media screen and (max-width: 750px){
+@media screen and (max-width: 750px) {
   .reset_test_button {
     font-size: 28px;
     padding: 10px;
   }
+  .test_content {
+    margin-top: 26px;
+  }
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 589px) {
   .reset_test_button {
     font-size: 28px;
     padding: 10px;
+  }
+  .test_content {
+    padding: 0px 10px;
+  }
+  .test_title {
+    padding: 13px 18px;
+    background: #c1403d;
+    font-size: 21px;
+    color: white;
+    margin: 0;
+    margin-left: 22px;
+  }
+  .test_content {
+    margin-top: 10px;
+  }
+  .test_content_header{
+    flex-direction: column;
+    gap: 0;
+  }
+}
+@media screen and (max-width: 420px) {
+  .test_title {
+    padding: 13px 18px;
+    background: #c1403d;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .test_title {
+    padding: 13px 18px;
+    background: #c1403d;
+    font-size: 16px;
+    color: white;
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width: 325px) {
+  .test_title {
+    padding: 13px 18px;
+    background: #c1403d;
+    font-size: 10px;
+    color: white;
+    margin-left: 10px;
   }
 }

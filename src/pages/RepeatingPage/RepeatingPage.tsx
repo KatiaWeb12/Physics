@@ -7,6 +7,7 @@ import ClassThemesList from "../ClassPage/components/ClassThemesList";
 import RepeatingSlider from "./components/RepeatingSlider/RepeatingSlider";
 import Tabs from "@/components/Tabs/Tabs";
 import Statistics from "./components/Statistics/Statistics"
+import styles from '../TestingPage/TestingPage.module.css'
 
 // Страница: повторение формул по карточкам
 export default function RepeatingPage() {
@@ -60,6 +61,7 @@ export default function RepeatingPage() {
           themes={themes}
         />
       )}
+      {<p className={styles.click_note}>Чтобы узнать верный ответ, нажми на карточку</p>}
       {Boolean(activeClass) && Boolean(activeThemeId) && <RepeatingSlider formulas={formulas} setFormulasForReating={setFormulasForReating} />}
       {Boolean(activeThemeId) && Boolean(formulasForReating.length) && <Statistics list={formulasForReating} />}
     </ContentWrapper>

@@ -159,3 +159,28 @@
     font-size: 26px;
   }
 }
+@media screen and (max-width: 400px){
+  .task_answer input {
+    width: 150px;
+    height: 44px;
+    font-size: 24px;
+  }
+  .task_answer button {
+    width: 150px;
+    height: 44px;
+    font-size: 24px;
+  }
+  .task_answer {
+    gap: 12px;
+  }
+  .task_title {
+    width: 160px;
+    height: 46px;
+  }
+  .task_title p {
+    font-size: 24px;
+  }
+  .task_text{
+    font-size: 22px;
+  }
+}

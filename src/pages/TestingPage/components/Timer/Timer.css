@@ -10,16 +10,16 @@
 
 @media screen and (max-width: 1136px){
   .timer p {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 @media screen and (max-width: 750px){
   .timer p {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 @media screen and (max-width: 500px){
   .timer p {
-    font-size: 32px;
+    font-size: 28px;
   }
 }

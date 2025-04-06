@@ -23,6 +23,7 @@
   padding: 36px;
   box-sizing: border-box;
   gap: 28px;
+  text-align: center;
 }
 .test_modal_info h5 {
   font-size: 32px;
@@ -52,6 +53,9 @@
 }
 
 @media screen and (max-width: 1136px) {
+  .test_modal_info {
+    width: 94%;
+  }
   .test_modal_info h5 {
     font-size: 36px;
   }
@@ -75,7 +79,10 @@
     font-size: 26px;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 560px) {
+  .test_modal_buttons{
+    flex-direction: column;
+  }
   .test_modal_info h5 {
     font-size: 36px;
   }

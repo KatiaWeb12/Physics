@@ -3,43 +3,42 @@
   width: 70%;
   position: relative;
 }
-.carousel_wrapper{
+.carousel_wrapper {
   position: relative;
 }
 .slider_button {
   outline: none;
   position: absolute;
-  pointer-events: all!important;
+  pointer-events: all !important;
   cursor: pointer;
   border: none;
   top: 50%;
-  width: 32px!important;
+  width: 32px !important;
   transform: translateY(-50%);
   z-index: 2;
 }
 .slider_prev_button {
-  left:0
+  left: 0;
 }
 .slider_next_button {
-  right:0
+  right: 0;
 }
 
-
-@media screen and (max-width: 1136px){
+@media screen and (max-width: 1136px) {
   .repeating {
     width: 100%;
     margin-top: 100px;
     margin-bottom: 50px;
   }
 }
-@media screen and (max-width: 750px){
+@media screen and (max-width: 750px) {
   .repeating {
-    width: 100%; 
+    width: 100%;
     margin-top: 100px;
     margin-bottom: 50px;
   }
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
   .repeating {
     width: 100%;
     margin-top: 100px;
