@@ -8,5 +8,12 @@
    margin: 30px auto 0;
    padding-bottom: 32px;
    padding: 0px 20px;
+   margin-bottom: 30px;
  }
+
+ @media screen and (max-width: 500px){
+  .card_list{
+    gap: 50px;
+  }
+}
 

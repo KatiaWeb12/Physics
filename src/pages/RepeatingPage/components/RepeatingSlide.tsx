@@ -12,6 +12,7 @@ export default function RepeatingSlide({ formula, setFormulasForReating }: Props
    const [isFlipped, setIsFlipped] = useState(false)
    function onFlippHendle() {
       setIsFlipped(!isFlipped)
+      console.log(isFlipped)
    }
    return (
       <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">

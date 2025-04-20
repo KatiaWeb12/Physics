@@ -6,10 +6,6 @@
   color: white;
   margin: 0;
 }
-.click_note {
-  font-size: 24px;
-  margin-top: 20px;
-}
 .test_content {
   margin-top: 48px;
 }
@@ -69,7 +65,7 @@
   .test_content {
     margin-top: 10px;
   }
-  .test_content_header{
+  .test_content_header {
     flex-direction: column;
     gap: 0;
   }

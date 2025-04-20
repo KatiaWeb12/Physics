@@ -1,7 +1,8 @@
 .repeating {
-  margin: 96px auto 0;
+  margin: 48px auto 0;
   width: 70%;
   position: relative;
+  margin-bottom: 16px;
 }
 .carousel_wrapper {
   position: relative;
@@ -17,6 +18,11 @@
   transform: translateY(-50%);
   z-index: 2;
 }
+.click_note {
+  font-size: 24px;
+  margin-top: 34px;
+  text-align: center;
+}
 .slider_prev_button {
   left: 0;
 }
@@ -27,21 +33,21 @@
 @media screen and (max-width: 1136px) {
   .repeating {
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin: 40px auto 0;
+    margin-bottom: 16px;
   }
 }
 @media screen and (max-width: 750px) {
   .repeating {
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin: 40px auto 0;
+    margin-bottom: 16px;
   }
 }
 @media screen and (max-width: 500px) {
   .repeating {
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin: 40px auto 0;
+    margin-bottom: 16px;
   }
 }
